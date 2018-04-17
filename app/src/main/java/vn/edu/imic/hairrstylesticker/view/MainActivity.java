@@ -1,7 +1,9 @@
-package vn.edu.imic.hairrstylesticker;
+package vn.edu.imic.hairrstylesticker.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import vn.edu.imic.hairrstylesticker.R;
 
 public class MainActivity extends AppCompatActivity {
 
