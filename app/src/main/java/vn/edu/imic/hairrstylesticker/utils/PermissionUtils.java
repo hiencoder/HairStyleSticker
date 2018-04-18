@@ -24,11 +24,12 @@ public class PermissionUtils {
     public static boolean isPermissionExternalStorageGranted(Context context){
         if (VERSION.SDK_INT >= 23
                 && ActivityCompat.checkSelfPermission(context,
-                Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+                Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(context,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
             return false;
         }
         return true;
     }
 
-    //public static boolean isPermission
 }
