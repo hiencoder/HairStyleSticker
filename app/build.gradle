@@ -49,4 +49,7 @@ dependencies {
 
     /*Permission*/
     implementation 'com.karumi:dexter:4.2.0'
+
+    /*Crop image*/
+    compile 'com.theartofdev.edmodo:android-image-cropper:2.7.+'
 }
