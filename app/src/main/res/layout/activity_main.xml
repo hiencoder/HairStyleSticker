@@ -4,7 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/activity_main"
+    android:background="@drawable/background"
     tools:context="vn.edu.imic.hairrstylesticker.view.MainActivity">
+<!--
+    <LinearLayout
+        android:id="@+id/ll_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="horizontal">
 
-
+    </LinearLayout>
+-->
+    <ImageView
+        android:id="@+id/btn_open_gallery"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/btn_gal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/btn_open_camera"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_open_camera"
+        android:adjustViewBounds="true"/>
+    <ImageView
+        android:id="@+id/btn_open_camera"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/btn_cam"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        android:adjustViewBounds="true"/>
+    <ImageView
+        android:id="@+id/btn_more_app"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/btn_more_app"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/btn_open_camera"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_open_camera"/>
 </android.support.constraint.ConstraintLayout>
