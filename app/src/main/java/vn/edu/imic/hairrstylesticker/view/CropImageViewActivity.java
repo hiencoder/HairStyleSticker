@@ -54,7 +54,7 @@ public class CropImageViewActivity extends AppCompatActivity implements CropImag
     private Bitmap bitmapSquare;
 
     /*Uri image*/
-    private Uri uriImage;
+    private Uri uriInput;
 
     /**/
     private CropImageOptions mOptions;
@@ -89,8 +89,8 @@ public class CropImageViewActivity extends AppCompatActivity implements CropImag
         //mOptions = bundle.getParcelable(CropImage.CROP_IMAGE_EXTRA_OPTIONS);
 
         //Set ảnh sử dụng uri
-        uriImage = Uri.fromFile(new File(currentPathImage));
-        civPhoto.setImageUriAsync(uriImage);
+        uriInput = Uri.fromFile(new File(currentPathImage));
+        civPhoto.setImageUriAsync(uriInput);
     }
 
     /*Init event*/
@@ -144,6 +144,8 @@ public class CropImageViewActivity extends AppCompatActivity implements CropImag
     private void cropImage() {
         /*output Uri*/
         Uri uriOutput = getOutputUri();
+        //Lưu lại vào đường dẫn uri mới
+        //civPhoto.saveCroppedImageAsync();
         Intent iResultPhoto = new Intent(this, EditPhotoActivity.class);
 
     }
@@ -157,7 +159,7 @@ public class CropImageViewActivity extends AppCompatActivity implements CropImag
                         mOptions.outputCompressFormat == Bitmap.CompressFormat.PNG ? ".png" : "webp";
                 outputUri = Uri.fromFile(File.createTempFile("cropped", ext, getCacheDir()));
             } catch (IOException e) {
-                e.printStackTrace();
+                throw new RuntimeException("Failed to create temp file for output image", e);
             }
         }
         return outputUri;
@@ -165,7 +167,7 @@ public class CropImageViewActivity extends AppCompatActivity implements CropImag
 
     @Override
     public void onCropImageComplete(CropImageView view, CropImageView.CropResult result) {
-
+        /*Sự kiện khi crop image hoàn thành thì chuyển resul*/
     }
 
     @Override

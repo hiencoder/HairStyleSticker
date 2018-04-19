@@ -118,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
                 //Dua duong dan anh vao intent
                 data.putExtra(Const.KEY_PHOTO_PATH,myPhotoPath);
                 data.setClass(this,CropImageViewActivity.class);
+                /*Chỉnh sửa gọi đến phương thức getIntent của CropImage*/
                 cursor.close();
                 startActivity(data);
             }
