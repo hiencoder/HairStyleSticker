@@ -116,8 +116,8 @@ public class MainActivity extends AppCompatActivity {
                 /*Gan gia tri duong danh*/
                 myPhotoPath = cursor.getString(cursor.getColumnIndex(filePathColumn[0]));
                 //Dua duong dan anh vao intent
-                data.putExtra(Const.KEY_PATH_PHOTO,myPhotoPath);
-                data.setClass(this,ChoosePhotoActivity.class);
+                data.putExtra(Const.KEY_PHOTO_PATH,myPhotoPath);
+                data.setClass(this,CropImageViewActivity.class);
                 cursor.close();
                 startActivity(data);
             }
@@ -130,11 +130,11 @@ public class MainActivity extends AppCompatActivity {
 
     /*Take picture from camera*/
     private void takePictureCamera() {
-        /*Lay ra anh vua chup cua camera dua sang ChoosePhotoActivity*/
+        /*Lay ra anh vua chup cua camera dua sang CropImageViewActivity*/
         if (currentPhotoPath != null){
             addPicToGallery();
-            Intent intent = new Intent(this,ChoosePhotoActivity.class);
-            intent.putExtra(Const.KEY_PATH_PHOTO,currentPhotoPath);
+            Intent intent = new Intent(this,CropImageViewActivity.class);
+            intent.putExtra(Const.KEY_PHOTO_PATH,currentPhotoPath);
             startActivity(intent);
             myPhotoPath = null;
         }

@@ -22,6 +22,16 @@ allprojects {
         maven { url "https://jitpack.io" }
     }
 }
+ext {
+    compileSdkVersion = 27
+    buildToolsVersion = '27.0.3'
+    supportLibraryVersion = '27.1.1'
+
+    PUBLISH_GROUP_ID = 'com.theartofdev.edmodo'
+    PUBLISH_ARTIFACT_ID = 'android-image-cropper'
+    PUBLISH_VERSION = '2.7.0'
+    // gradlew clean build generateRelease
+}
 
 task clean(type: Delete) {
     delete rootProject.buildDir

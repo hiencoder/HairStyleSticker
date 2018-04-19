@@ -18,14 +18,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <provider
-            android:authorities="vn.edu.imic.hairrstylesticker"
             android:name="android.support.v4.content.FileProvider"
+            android:authorities="vn.edu.imic.hairrstylesticker"
             android:exported="false"
             android:grantUriPermissions="true">
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
         </provider>
-        <activity android:name=".view.MainActivity"></activity>
+
+        <activity android:name=".view.MainActivity" />
         <activity android:name=".view.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +35,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.ChoosePhotoActivity"></activity>
+        <activity android:name=".view.CropImageViewActivity" />
+        <activity android:name=".view.EditPhotoActivity"></activity>
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"/>
     </application>
 
 </manifest>
