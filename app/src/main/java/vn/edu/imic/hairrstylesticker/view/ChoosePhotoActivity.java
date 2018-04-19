@@ -8,13 +8,14 @@ import vn.edu.imic.hairrstylesticker.R;
 import vn.edu.imic.hairrstylesticker.utils.Const;
 import vn.edu.imic.hairrstylesticker.utils.Logger;
 
-public class EditPhotoActivity extends AppCompatActivity {
-    private static final String TAG = EditPhotoActivity.class.getSimpleName();
+public class ChoosePhotoActivity extends AppCompatActivity {
+    private static final String TAG = ChoosePhotoActivity.class.getSimpleName();
     private Intent data;
+    private String currentPathImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_photo);
+        setContentView(R.layout.activity_choose_photo);
         data = getIntent();
         String pathPhoto = data.getStringExtra(Const.KEY_PATH_PHOTO);
         Logger.d(TAG, pathPhoto);

@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 myPhotoPath = cursor.getString(cursor.getColumnIndex(filePathColumn[0]));
                 //Dua duong dan anh vao intent
                 data.putExtra(Const.KEY_PATH_PHOTO,myPhotoPath);
-                data.setClass(this,EditPhotoActivity.class);
+                data.setClass(this,ChoosePhotoActivity.class);
                 cursor.close();
                 startActivity(data);
             }
@@ -130,10 +130,10 @@ public class MainActivity extends AppCompatActivity {
 
     /*Take picture from camera*/
     private void takePictureCamera() {
-        /*Lay ra anh vua chup cua camera dua sang EditPhotoActivity*/
+        /*Lay ra anh vua chup cua camera dua sang ChoosePhotoActivity*/
         if (currentPhotoPath != null){
             addPicToGallery();
-            Intent intent = new Intent(this,EditPhotoActivity.class);
+            Intent intent = new Intent(this,ChoosePhotoActivity.class);
             intent.putExtra(Const.KEY_PATH_PHOTO,currentPhotoPath);
             startActivity(intent);
             myPhotoPath = null;

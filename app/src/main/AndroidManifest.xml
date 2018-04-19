@@ -33,7 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.EditPhotoActivity"></activity>
+        <activity android:name=".view.ChoosePhotoActivity"></activity>
     </application>
 
 </manifest>
