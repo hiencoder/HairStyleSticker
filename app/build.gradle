@@ -5,7 +5,7 @@ android {
     defaultConfig {
         applicationId "vn.edu.imic.hairrstylesticker"
         minSdkVersion 19
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -51,7 +51,7 @@ dependencies {
     implementation 'com.karumi:dexter:4.2.0'
 
     /*Crop image*/
-    compile 'com.theartofdev.edmodo:android-image-cropper:2.7.+'
+    //compile 'com.theartofdev.edmodo:android-image-cropper:2.7.+'
 
     api project(':cropper')
 }

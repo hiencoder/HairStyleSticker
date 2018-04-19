@@ -14,6 +14,7 @@ import com.theartofdev.edmodo.cropper.CropImageOptions;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.File;
+import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -112,6 +113,8 @@ public class CropImageViewActivity extends AppCompatActivity implements CropImag
     @Override
     protected void onStop() {
         super.onStop();
+        civPhoto.setOnCropImageCompleteListener(null);
+        civPhoto.setOnSetImageUriCompleteListener(null);
     }
 
     @Override
@@ -147,7 +150,17 @@ public class CropImageViewActivity extends AppCompatActivity implements CropImag
 
     /*Tạo output Uri*/
     private Uri getOutputUri() {
-        return null;
+        Uri outputUri = mOptions.outputUri;
+        if (outputUri == null || outputUri.equals(Uri.EMPTY)) {
+            try {
+                String ext = mOptions.outputCompressFormat == Bitmap.CompressFormat.JPEG ? ".jpg" :
+                        mOptions.outputCompressFormat == Bitmap.CompressFormat.PNG ? ".png" : "webp";
+                outputUri = Uri.fromFile(File.createTempFile("cropped", ext, getCacheDir()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return outputUri;
     }
 
     @Override
