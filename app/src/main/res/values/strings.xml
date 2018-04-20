@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">HairrStyleSticker</string>
+    <string name="app_name">HairStyleSticker</string>
+    <!--Màn hình edit photo-->
+    <string name="txt_reset">Reset</string>
+    <string name="txt_ad">Ad</string>
+    <string name="txt_what_new">What&#39;s new</string>
+    <string name="txt_new">New</string>
+    <string name="txt_save">Save</string>
+    <string name="txt_hairs">Hairs</string>
+    <string name="txt_beard">Beard</string>
+    <string name="txt_mus">Mus</string>
+    <string name="txt_glasses">Glasses</string>
+    <string name="txt_tattoos">Tattoos</string>
+    <string name="txt_caps">Caps</string>
+    <string name="txt_suits">Suits</string>
+    <string name="txt_style">Styles</string>
+    <string name="txt_edit">Edit</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
