@@ -17,4 +17,6 @@ public class Const {
     public static final String KEY_PHOTO_CAMERA = "photo_camera";
     //Key uri image
     public static final String KEY_PHOTO_URI = "photo_uri";
+    //Key data image crop
+    public static final String KEY_DATA_IMAGE_CROP = "crop_image";
 }
