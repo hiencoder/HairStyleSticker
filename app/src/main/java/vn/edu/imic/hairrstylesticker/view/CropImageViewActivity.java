@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -56,7 +57,7 @@ public class CropImageViewActivity extends AppCompatActivity implements CropImag
     /*Uri image*/
     private Uri uriImage;
 
-    /**/
+    /*the options that were set for the crop image*/
     private CropImageOptions mOptions;
 
     @Override
@@ -74,7 +75,8 @@ public class CropImageViewActivity extends AppCompatActivity implements CropImag
         data = getIntent();
         currentPathImage = data.getStringExtra(Const.KEY_PHOTO_PATH);
         Logger.d(TAG, currentPathImage);
-
+        mOptions = new CropImageOptions();
+        mOptions.validate();
         /*Lấy ra bitmap từ đường dẫn ảnh set ảnh*/
 /*
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -144,8 +146,15 @@ public class CropImageViewActivity extends AppCompatActivity implements CropImag
     private void cropImage() {
         /*output Uri*/
         Uri uriOutput = getOutputUri();
-        Intent iResultPhoto = new Intent(this, EditPhotoActivity.class);
-
+        /*Save trạng thái */
+        civPhoto.saveCroppedImageAsync(
+                uriOutput,
+                mOptions.outputCompressFormat,
+                mOptions.outputCompressQuality,
+                mOptions.outputRequestWidth,
+                mOptions.outputRequestHeight,
+                mOptions.outputRequestSizeOptions
+        );
     }
 
     /*Tạo output Uri*/
@@ -165,11 +174,45 @@ public class CropImageViewActivity extends AppCompatActivity implements CropImag
 
     @Override
     public void onCropImageComplete(CropImageView view, CropImageView.CropResult result) {
-
+        Log.d(TAG, "onCropImageComplete: " + result.getSampleSize());
+        setResult(result.getUri(),result.getError(),result.getSampleSize());
     }
 
     @Override
     public void onSetImageUriComplete(CropImageView view, Uri uri, Exception error) {
+        Log.d(TAG, "onSetImageUriComplete: ");
+    }
 
+    /**
+     *
+     * @param uri
+     * @param error
+     * @param sampleSize
+     */
+    protected void setResult(Uri uri, Exception error, int sampleSize){
+       /*Put data image sang màn hình EditPhotoActivity, đóng activity*/
+       startActivity(getResultIntent(uri,error,sampleSize));
+       finish();
+    }
+
+    /**
+     *
+     * @param uri
+     * @param error
+     * @param sampleSize
+     */
+    private Intent getResultIntent(Uri uri, Exception error, int sampleSize) {
+        Intent intent = new Intent(CropImageViewActivity.this,EditPhotoActivity.class);
+        CropImage.ActivityResult result = new CropImage.ActivityResult(
+                civPhoto.getImageUri(),
+                uri,
+                error,
+                civPhoto.getCropPoints(),
+                civPhoto.getCropRect(),
+                civPhoto.getRotatedDegrees(),
+                civPhoto.getWholeImageRect(),
+                sampleSize);
+        intent.putExtra(CropImage.CROP_IMAGE_EXTRA_RESULT,result);
+        return intent;
     }
 }
