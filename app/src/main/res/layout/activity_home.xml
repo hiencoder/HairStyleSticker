@@ -6,13 +6,51 @@
     android:layout_height="match_parent"
     tools:context="vn.edu.imic.hairrstylesticker.view.HomeActivity"
     android:background="#222222">
-    <ImageView
-        android:id="@+id/btn_start"
+    <com.cunoraz.gifview.library.GifView
+        android:id="@+id/gv_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/btn_start"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="10dp"
+        app:gif="@drawable/gif1"/>
+<!--
+    <FrameLayout
+        android:id="@+id/fl_ads"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_start"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:id="@+id/ll_native_ads"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#00ffffff">
+
+        </LinearLayout>
+    </FrameLayout>
+-->
+    <ImageView
+        android:id="@+id/btn_start"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:src="@drawable/ic_power"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_start"
+        android:layout_marginTop="10dp"
+        android:text="Start"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
 </android.support.constraint.ConstraintLayout>

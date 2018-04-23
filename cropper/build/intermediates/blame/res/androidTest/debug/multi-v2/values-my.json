@@ -1,10 +1,20 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\RxJava\\ManHairStyle\\HairStyleSticker\\cropper\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-my\\values-my.xml",
+            "outputFile": "D:\\Android\\AD4-2018\\ManHairStyle\\HairStyleSticker\\cropper\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-my\\values-my.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\GMO\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\49a9a7d575a7759c7a26fc4468788e47\\res\\values-my\\values-my.xml",
+                    "source": "C:\\Users\\MyPC\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\865200ade1ea98361101c0612e139ad4\\res\\values-my\\values-my.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,214,319,436,529,641,769,847,926,1012,1135,1247,1349,1475,1586,1696,1856,1956",
+                        "endColumns": "108,104,116,92,111,127,77,78,85,122,111,101,125,110,109,159,99,83",
+                        "endOffsets": "209,314,431,524,636,764,842,921,1007,1130,1242,1344,1470,1581,1691,1851,1951,2035"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\MyPC\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.0.aar\\7779fe903d6f3ef25c00cb5c5b72461c\\res\\values-my\\values-my.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -18,16 +28,6 @@
                         "startOffsets": "2040",
                         "endColumns": "100",
                         "endOffsets": "2136"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\GMO\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\58e6d1b3db9235dbf9310a8045c542c3\\res\\values-my\\values-my.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,214,319,436,529,641,769,847,926,1012,1135,1247,1349,1475,1586,1696,1856,1956",
-                        "endColumns": "108,104,116,92,111,127,77,78,85,122,111,101,125,110,109,159,99,83",
-                        "endOffsets": "209,314,431,524,636,764,842,921,1007,1130,1242,1344,1470,1581,1691,1851,1951,2035"
                     }
                 }
             ]

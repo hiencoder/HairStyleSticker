@@ -2,6 +2,8 @@ package vn.edu.imic.hairrstylesticker.view;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -10,7 +12,13 @@ import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
+import com.facebook.ads.AdChoicesView;
+import com.facebook.ads.InterstitialAd;
+import com.facebook.ads.NativeAd;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -21,6 +29,7 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
@@ -32,11 +41,39 @@ public class HomeActivity extends AppCompatActivity {
     /**/
     private Unbinder unbinder;
     private static final String TAG = HomeActivity.class.getSimpleName();
+    @BindView(R.id.btn_start)
+    ImageView btnStart;
+    @BindView(R.id.gv_icon)
+    com.cunoraz.gifview.library.GifView gvIcon;
+    private AdChoicesView adChoicesView;
+    //@BindView(R.id.ll_native_ads)
+    LinearLayout llAdsView;
+    InterstitialAd n;
+    private NativeAd nativeAd;
+    /*Web thể hiện ads*/
+    private String startAds = "http://www.appwallettech.com/appwalletftp/StartAdFile.xml";
+    private String exitAds = "http://www.appwallettech.com/appwalletftp/exitad.xml";
+    boolean q = Boolean.parseBoolean(null);
+    String[] s = null;
+    String[] t = null;
+    Context v = this;
+    boolean w = false;
+    Button x;
+    boolean y = false;
+    Dialog z;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         unbinder = ButterKnife.bind(this);
+/*
+        gvIcon.setVisibility(View.VISIBLE);
+        gvIcon.play();
+        gvIcon.pause();
+        gvIcon.setGifResource(R.drawable.animation35);
+*/
+
         if (!PermissionUtils.isPermissionCameraGranted(this) ||
                 !PermissionUtils.isPermissionExternalStorageGranted(this)) {
             Dexter.withActivity(this)

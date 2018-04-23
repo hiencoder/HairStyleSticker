@@ -15,9 +15,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import vn.edu.imic.hairrstylesticker.R;
+import vn.edu.imic.hairrstylesticker.network.Style;
 import vn.edu.imic.hairrstylesticker.view.fragment.FragmentStyle;
 
-public class EditPhotoActivity extends AppCompatActivity {
+public class EditPhotoActivity extends AppCompatActivity implements FragmentStyle.SendStyle{
     private static final String TAG = EditPhotoActivity.class.getSimpleName();
     private Intent intent;
     private Uri uri;
@@ -56,5 +57,10 @@ public class EditPhotoActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         unbinder.unbind();
+    }
+
+    @Override
+    public void sendStyle(Style style) {
+
     }
 }
