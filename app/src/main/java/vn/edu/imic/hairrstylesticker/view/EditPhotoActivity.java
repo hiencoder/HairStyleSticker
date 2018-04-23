@@ -32,7 +32,7 @@ public class EditPhotoActivity extends AppCompatActivity implements FragmentStyl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_photo);
+        setContentView(R.layout.activity_edit_photo_3);
         unbinder = ButterKnife.bind(this);
         intent = getIntent();
         initData();
@@ -48,9 +48,11 @@ public class EditPhotoActivity extends AppCompatActivity implements FragmentStyl
         //imgCrop.setImageURI(result.getUri());
 
         /*Đổ fragment*/
+/*
         fmEditPhoto = getSupportFragmentManager();
         FragmentTransaction ftStyle = fmEditPhoto.beginTransaction();
         ftStyle.add(R.id.frame_content,new FragmentStyle()).commitAllowingStateLoss();
+*/
     }
 
     @Override

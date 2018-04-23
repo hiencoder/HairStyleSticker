@@ -10,9 +10,14 @@
 
     <!--Style for text-->
     <style name="BaseText">
-        <item name="android:textSize">12sp</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:layout_marginBottom">3dp</item>
+    </style>
+    <style name="StyleTextEditPhotoColor" parent="BaseText">
+        <item name="android:textSize">7sp</item>
+    </style>
+    <style name="StyleTextEditPhoto" parent="BaseText">
+        <item name="android:textSize">10sp</item>
     </style>
 </resources>
