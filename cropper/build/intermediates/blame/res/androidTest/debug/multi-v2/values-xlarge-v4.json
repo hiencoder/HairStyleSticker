@@ -1,22 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Android\\AD4-2018\\ManHairStyle\\HairStyleSticker\\cropper\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-xlarge-v4\\values-xlarge-v4.xml",
-            "map": [
-                {
-                    "source": "C:\\Users\\MyPC\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\865200ade1ea98361101c0612e139ad4\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,126,197,267,337,405",
-                        "endColumns": "70,70,69,69,67,67",
-                        "endOffsets": "121,192,262,332,400,468"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "D:\\RxJava\\HairStylePro\\HairStyleSticker\\cropper\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-xlarge-v4\\values-xlarge-v4.xml",
+            "outputFile": "D:\\RxJava\\ManHairDev\\HairStyleSticker\\cropper\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-xlarge-v4\\values-xlarge-v4.xml",
             "map": [
                 {
                     "source": "C:\\Users\\GMO\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\971477574f408f723f8cb0711f9ad67c\\res\\values-xlarge-v4\\values-xlarge-v4.xml",

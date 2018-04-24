@@ -111,7 +111,7 @@
     <RelativeLayout
         android:id="@+id/rl_styles"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@android:color/white"
         android:visibility="visible">
@@ -130,7 +130,8 @@
                     android:id="@+id/img_hair"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/hair"/>
+                    android:src="@drawable/hair"
+                    android:layout_centerHorizontal="true"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -146,7 +147,8 @@
                     android:id="@+id/img_beard"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/beard"/>
+                    android:src="@drawable/beard"
+                    android:layout_centerHorizontal="true"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -162,7 +164,8 @@
                     android:id="@+id/img_mus"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/mustachi"/>
+                    android:src="@drawable/mustachi"
+                    android:layout_centerHorizontal="true"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -178,7 +181,8 @@
                     android:id="@+id/img_glasses"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/glass"/>
+                    android:src="@drawable/glass"
+                    android:layout_centerHorizontal="true"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -194,11 +198,12 @@
                     android:id="@+id/img_tattoo"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/tattoo"/>
+                    android:src="@drawable/tattoo"
+                    android:layout_centerHorizontal="true"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_hairs"
+                    android:text="@string/txt_tattoos"
                     style="@style/StyleTextEditPhoto"/>
             </RelativeLayout>
             <RelativeLayout
@@ -210,7 +215,8 @@
                     android:id="@+id/img_cap"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/cap"/>
+                    android:src="@drawable/cap"
+                    android:layout_centerHorizontal="true"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -226,7 +232,8 @@
                     android:id="@+id/img_suite"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/suite"/>
+                    android:src="@drawable/suite"
+                    android:layout_centerHorizontal="true"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -254,6 +261,7 @@
                 android:layout_weight="1"
                 android:src="@drawable/bar"/>
             <TextView
+                android:id="@+id/btn_edit"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
@@ -267,11 +275,14 @@
     <RelativeLayout
         android:id="@+id/rl_color"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="wrap_content"
+        android:minHeight="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:background="@android:color/white">
+        android:background="@android:color/white"
+        android:visibility="invisible">
         <HorizontalScrollView
+            android:id="@+id/hsv_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#ffffff"
@@ -921,6 +932,13 @@
 
             </LinearLayout>
         </HorizontalScrollView>
+
+        <!--HorizontalScrollView for style-->
+        <HorizontalScrollView
+            android:id="@+id/hsv_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/hsv_color"/>
     </RelativeLayout>
 
     <!--ImageView close hair-->
@@ -931,7 +949,8 @@
         android:src="@drawable/cancel"
         app:layout_constraintBottom_toTopOf="@+id/rl_styles"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="5dp"/>
+        android:layout_marginLeft="5dp"
+        android:visibility="invisible"/>
     <ImageView
         android:id="@+id/btn_flip"
         android:layout_width="30dp"
@@ -939,7 +958,8 @@
         android:src="@drawable/flip_2"
         app:layout_constraintBottom_toTopOf="@+id/rl_styles"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="invisible"/>
     <ImageView
         android:id="@+id/btn_save_hair"
         android:layout_width="30dp"
@@ -947,5 +967,6 @@
         android:src="@drawable/done_1"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/rl_styles"
-        android:layout_marginRight="5dp"/>
+        android:layout_marginRight="5dp"
+        android:visibility="invisible"/>
 </android.support.constraint.ConstraintLayout>
