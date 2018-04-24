@@ -90,10 +90,22 @@
     <!--ImageView show image uri-->
     <ImageView
         android:id="@+id/img_crop"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:background="#00ffffff"
+        android:adjustViewBounds="true"
         app:layout_constraintTop_toBottomOf="@+id/ll_top"
         app:layout_constraintBottom_toTopOf="@+id/rl_styles"/>
+    <!--ImageView show style choose-->
+    <ImageView
+        android:id="@+id/img_choose_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="matrix"
+        android:background="#00ffffff"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <!--Layout styles-->
     <RelativeLayout
@@ -273,7 +285,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_original"
+                        android:id="@+id/ib_color0"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -284,7 +296,7 @@
                         android:layout_height="wrap_content"
                         android:text="Original"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_original"
+                        android:layout_below="@+id/ib_color0"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -292,7 +304,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_golden_red"
+                        android:id="@+id/ib_color1"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -303,7 +315,7 @@
                         android:layout_height="wrap_content"
                         android:text="GoldenRed"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_golden_red"
+                        android:layout_below="@+id/ib_color1"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -312,7 +324,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_cop"
+                        android:id="@+id/ib_color2"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -323,7 +335,7 @@
                         android:layout_height="wrap_content"
                         android:text="Cop"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_cop"
+                        android:layout_below="@+id/ib_color2"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -332,7 +344,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_ocean_blue"
+                        android:id="@+id/ib_color3"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -343,7 +355,7 @@
                         android:layout_height="wrap_content"
                         android:text="OceanBlue"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_ocean_blue"
+                        android:layout_below="@+id/ib_color3"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -352,7 +364,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_orchid"
+                        android:id="@+id/ib_color4"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -363,7 +375,7 @@
                         android:layout_height="wrap_content"
                         android:text="Orchid"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_orchid"
+                        android:layout_below="@+id/ib_color4"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -372,7 +384,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_light_blonde"
+                        android:id="@+id/ib_color5"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -383,7 +395,7 @@
                         android:layout_height="wrap_content"
                         android:text="LightBlonde"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_light_blonde"
+                        android:layout_below="@+id/ib_color5"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -392,7 +404,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_light_red"
+                        android:id="@+id/ib_color6"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -403,7 +415,7 @@
                         android:layout_height="wrap_content"
                         android:text="LightRed"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_light_red"
+                        android:layout_below="@+id/ib_color6"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -412,7 +424,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_light_gray"
+                        android:id="@+id/ib_color7"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -423,7 +435,7 @@
                         android:layout_height="wrap_content"
                         android:text="LightGray"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_light_gray"
+                        android:layout_below="@+id/ib_color7"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -432,7 +444,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_light_pink"
+                        android:id="@+id/ib_color8"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -443,7 +455,7 @@
                         android:layout_height="wrap_content"
                         android:text="LightPink"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_light_pink"
+                        android:layout_below="@+id/ib_color8"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -452,7 +464,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_dark_red"
+                        android:id="@+id/ib_color9"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -463,7 +475,7 @@
                         android:layout_height="wrap_content"
                         android:text="DarkRed"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_dark_red"
+                        android:layout_below="@+id/ib_color9"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -472,7 +484,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_snow"
+                        android:id="@+id/ib_color10"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -483,7 +495,7 @@
                         android:layout_height="wrap_content"
                         android:text="Snow"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_snow"
+                        android:layout_below="@+id/ib_color10"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -492,7 +504,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_dark_brown"
+                        android:id="@+id/ib_color11"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -503,7 +515,7 @@
                         android:layout_height="wrap_content"
                         android:text="GoldenRed"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_dark_brown"
+                        android:layout_below="@+id/ib_color11"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -512,7 +524,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_lavender"
+                        android:id="@+id/ib_color12"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -523,7 +535,7 @@
                         android:layout_height="wrap_content"
                         android:text="GoldenRed"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_lavender"
+                        android:layout_below="@+id/ib_color12"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -532,7 +544,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_brown"
+                        android:id="@+id/ib_color13"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -543,7 +555,7 @@
                         android:layout_height="wrap_content"
                         android:text="Brown"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_brown"
+                        android:layout_below="@+id/ib_color13"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -552,7 +564,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_violet_red"
+                        android:id="@+id/ib_color14"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -563,7 +575,7 @@
                         android:layout_height="wrap_content"
                         android:text="GoldenRed"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_violet_red"
+                        android:layout_below="@+id/ib_color14"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -572,7 +584,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_olive"
+                        android:id="@+id/ib_color15"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -583,7 +595,7 @@
                         android:layout_height="wrap_content"
                         android:text="Olivedrab"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_olive"
+                        android:layout_below="@+id/ib_color15"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -592,7 +604,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_dark_gray"
+                        android:id="@+id/ib_color16"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -603,7 +615,7 @@
                         android:layout_height="wrap_content"
                         android:text="GoldenRed"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_dark_gray"
+                        android:layout_below="@+id/ib_color16"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -612,7 +624,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_thistle"
+                        android:id="@+id/ib_color17"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -623,7 +635,7 @@
                         android:layout_height="wrap_content"
                         android:text="GoldenRed"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_thistle"
+                        android:layout_below="@+id/ib_color17"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -632,7 +644,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_chart_reuse"
+                        android:id="@+id/ib_color18"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -643,7 +655,7 @@
                         android:layout_height="wrap_content"
                         android:text="Chartreuse"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_chart_reuse"
+                        android:layout_below="@+id/ib_color18"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -652,7 +664,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_ligh_blue"
+                        android:id="@+id/ib_color19"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -663,7 +675,7 @@
                         android:layout_height="wrap_content"
                         android:text="GoldenRed"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_ligh_blue"
+                        android:layout_below="@+id/ib_color19"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -672,7 +684,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_light_blue_2"
+                        android:id="@+id/ib_color20"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -683,7 +695,7 @@
                         android:layout_height="wrap_content"
                         android:text="LightBlue"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_light_blue_2"
+                        android:layout_below="@+id/ib_color20"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -692,7 +704,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_media_purple"
+                        android:id="@+id/ib_color21"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -703,7 +715,7 @@
                         android:layout_height="wrap_content"
                         android:text="GoldenRed"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_media_purple"
+                        android:layout_below="@+id/ib_color21"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -712,7 +724,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_gold_enrod"
+                        android:id="@+id/ib_color22"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -723,7 +735,7 @@
                         android:layout_height="wrap_content"
                         android:text="GoldEnrod"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_gold_enrod"
+                        android:layout_below="@+id/ib_color22"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -732,7 +744,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_white_blonde"
+                        android:id="@+id/ib_color23"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -743,7 +755,7 @@
                         android:layout_height="wrap_content"
                         android:text="WhiteBlonde"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_white_blonde"
+                        android:layout_below="@+id/ib_color23"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -752,7 +764,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_royal_blue"
+                        android:id="@+id/ib_color24"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -763,7 +775,7 @@
                         android:layout_height="wrap_content"
                         android:text="RoyalBlue"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_royal_blue"
+                        android:layout_below="@+id/ib_color24"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -772,7 +784,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
                     <ImageButton
-                        android:id="@+id/ib_light_salmon"
+                        android:id="@+id/ib_color25"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
@@ -783,7 +795,127 @@
                         android:layout_height="wrap_content"
                         android:text="LightSalmon"
                         style="@style/StyleTextEditPhotoColor"
-                        android:layout_below="@+id/ib_light_salmon"
+                        android:layout_below="@+id/ib_color25"
+                        android:layout_marginTop="1dp"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/btn_color_steel_blue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="3dp">
+                    <ImageButton
+                        android:id="@+id/ib_color26"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:background="#00ffffff"
+                        android:src="@drawable/hair_1"
+                        android:tint="#bcd2ee"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SteelBlue"
+                        style="@style/StyleTextEditPhotoColor"
+                        android:layout_below="@+id/ib_color26"
+                        android:layout_marginTop="1dp"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/btn_color_slate_blue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="3dp">
+                    <ImageButton
+                        android:id="@+id/ib_color27"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:background="#00ffffff"
+                        android:src="@drawable/hair_1"
+                        android:tint="#7171c6"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SlateBlue"
+                        style="@style/StyleTextEditPhotoColor"
+                        android:layout_below="@+id/ib_color27"
+                        android:layout_marginTop="1dp"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/btn_color_sea_green"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="3dp">
+                    <ImageButton
+                        android:id="@+id/ib_color28"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:background="#00ffffff"
+                        android:src="@drawable/hair_1"
+                        android:tint="#c1ffc1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SeaGreen"
+                        style="@style/StyleTextEditPhotoColor"
+                        android:layout_below="@+id/ib_color28"
+                        android:layout_marginTop="1dp"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/btn_color_medium_gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="3dp">
+                    <ImageButton
+                        android:id="@+id/ib_color29"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:background="#00ffffff"
+                        android:src="@drawable/hair_1"
+                        android:tint="#b7a69e"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MediumGray"
+                        style="@style/StyleTextEditPhotoColor"
+                        android:layout_below="@+id/ib_color29"
+                        android:layout_marginTop="1dp"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/btn_color_olive_green"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="3dp">
+                    <ImageButton
+                        android:id="@+id/ib_color30"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:background="#00ffffff"
+                        android:src="@drawable/hair_1"
+                        android:tint="#bcee68"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OliveGreen"
+                        style="@style/StyleTextEditPhotoColor"
+                        android:layout_below="@+id/ib_color30"
+                        android:layout_marginTop="1dp"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/btn_color_gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="3dp">
+                    <ImageButton
+                        android:id="@+id/ib_color31"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:background="#00ffffff"
+                        android:src="@drawable/hair_1"
+                        android:tint="#404040"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gray"
+                        style="@style/StyleTextEditPhotoColor"
+                        android:layout_below="@+id/ib_color31"
                         android:layout_marginTop="1dp"/>
                 </RelativeLayout>
 
