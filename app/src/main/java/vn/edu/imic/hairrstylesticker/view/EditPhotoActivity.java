@@ -166,16 +166,31 @@ public class EditPhotoActivity extends AppCompatActivity {
         initData();
     }
 
+            /*public void SetTintforButton() {
+        ((ImageButton) findViewById(R.id.color8)).setColorFilter(Color.parseColor("#FFAEB9"), Mode.MULTIPLY);
+        ((ImageButton) findViewById(R.id.color9)).setColorFilter(Color.parseColor("#8D4A43"), Mode.MULTIPLY);
+        ((ImageButton) findViewById(R.id.color10)).setColorFilter(Color.parseColor("#EEE9E9"), Mode.MULTIPLY);
+        ((ImageButton) findViewById(R.id.color11)).setColorFilter(Color.parseColor("#91553D"), Mode.MULTIPLY);
+        ((ImageButton) findViewById(R.id.color12)).setColorFilter(Color.parseColor("#EEE0E5"), Mode.MULTIPLY);
+        ((ImageButton) findViewById(R.id.color13)).setColorFilter(Color.parseColor("#FF4040"), Mode.MULTIPLY);
+        ((ImageButton) findViewById(R.id.color14)).setColorFilter(Color.parseColor("#D02090"), Mode.MULTIPLY);
+        ((ImageButton) findViewById(R.id.color15)).setColorFilter(Color.parseColor("#8E8E38"), Mode.MULTIPLY);
+        ((ImageButton) findViewById(R.id.color16)).setColorFilter(Color.parseColor("#71635A"), Mode.MULTIPLY);
+        ((ImageButton) findViewById(R.id.color17)).setColorFilter(Color.parseColor("#D8BFD8"), Mode.MULTIPLY);
+        ((ImageButton) findViewById(R.id.color18)).setColorFilter(Color.parseColor("#71C671"), Mode.MULTIPLY);
+    }
+*/
+
     /*Set tint for button*/
     private void setTintForButton() {
         btnColor0.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor1.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor2.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor3.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor4.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor5.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor6.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor7.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
+        btnColor1.setColorFilter(Color.parseColor("#F0E68C"), PorterDuff.Mode.MULTIPLY);
+        btnColor2.setColorFilter(Color.parseColor("#00EEEE"), PorterDuff.Mode.MULTIPLY);
+        btnColor3.setColorFilter(Color.parseColor("#FF83FA"), PorterDuff.Mode.MULTIPLY);
+        btnColor4.setColorFilter(Color.parseColor("#E6CEA8"), PorterDuff.Mode.MULTIPLY);
+        btnColor5.setColorFilter(Color.parseColor("#A56B46"), PorterDuff.Mode.MULTIPLY);
+        btnColor6.setColorFilter(Color.parseColor("#B55239"), PorterDuff.Mode.MULTIPLY);
+        btnColor7.setColorFilter(Color.parseColor("#FFAEB9"), PorterDuff.Mode.MULTIPLY);
         btnColor8.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
         btnColor9.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
         btnColor10.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
@@ -201,27 +216,6 @@ public class EditPhotoActivity extends AppCompatActivity {
         btnColor30.setColorFilter(Color.parseColor("#BCEE68"), PorterDuff.Mode.MULTIPLY);
     }
 
-        /*public void SetTintforButton() {
-        ((ImageButton) findViewById(R.id.color1)).setColorFilter(Color.parseColor("#FF8000"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color2)).setColorFilter(Color.parseColor("#F0E68C"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color3)).setColorFilter(Color.parseColor("#00EEEE"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color4)).setColorFilter(Color.parseColor("#FF83FA"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color5)).setColorFilter(Color.parseColor("#E6CEA8"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color6)).setColorFilter(Color.parseColor("#A56B46"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color7)).setColorFilter(Color.parseColor("#B55239"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color8)).setColorFilter(Color.parseColor("#FFAEB9"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color9)).setColorFilter(Color.parseColor("#8D4A43"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color10)).setColorFilter(Color.parseColor("#EEE9E9"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color11)).setColorFilter(Color.parseColor("#91553D"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color12)).setColorFilter(Color.parseColor("#EEE0E5"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color13)).setColorFilter(Color.parseColor("#FF4040"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color14)).setColorFilter(Color.parseColor("#D02090"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color15)).setColorFilter(Color.parseColor("#8E8E38"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color16)).setColorFilter(Color.parseColor("#71635A"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color17)).setColorFilter(Color.parseColor("#D8BFD8"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color18)).setColorFilter(Color.parseColor("#71C671"), Mode.MULTIPLY);
-    }
-*/
 
     /*init data*/
     private void initData() {
