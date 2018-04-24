@@ -166,54 +166,41 @@ public class EditPhotoActivity extends AppCompatActivity {
         initData();
     }
 
-            /*public void SetTintforButton() {
-        ((ImageButton) findViewById(R.id.color8)).setColorFilter(Color.parseColor("#FFAEB9"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color9)).setColorFilter(Color.parseColor("#8D4A43"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color10)).setColorFilter(Color.parseColor("#EEE9E9"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color11)).setColorFilter(Color.parseColor("#91553D"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color12)).setColorFilter(Color.parseColor("#EEE0E5"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color13)).setColorFilter(Color.parseColor("#FF4040"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color14)).setColorFilter(Color.parseColor("#D02090"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color15)).setColorFilter(Color.parseColor("#8E8E38"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color16)).setColorFilter(Color.parseColor("#71635A"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color17)).setColorFilter(Color.parseColor("#D8BFD8"), Mode.MULTIPLY);
-        ((ImageButton) findViewById(R.id.color18)).setColorFilter(Color.parseColor("#71C671"), Mode.MULTIPLY);
-    }
-*/
 
     /*Set tint for button*/
     private void setTintForButton() {
-        btnColor0.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor1.setColorFilter(Color.parseColor("#F0E68C"), PorterDuff.Mode.MULTIPLY);
-        btnColor2.setColorFilter(Color.parseColor("#00EEEE"), PorterDuff.Mode.MULTIPLY);
-        btnColor3.setColorFilter(Color.parseColor("#FF83FA"), PorterDuff.Mode.MULTIPLY);
-        btnColor4.setColorFilter(Color.parseColor("#E6CEA8"), PorterDuff.Mode.MULTIPLY);
-        btnColor5.setColorFilter(Color.parseColor("#A56B46"), PorterDuff.Mode.MULTIPLY);
-        btnColor6.setColorFilter(Color.parseColor("#B55239"), PorterDuff.Mode.MULTIPLY);
-        btnColor7.setColorFilter(Color.parseColor("#FFAEB9"), PorterDuff.Mode.MULTIPLY);
-        btnColor8.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor9.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor10.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor11.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor12.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor13.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor14.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor15.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor16.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor17.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
-        btnColor18.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
+        btnColor0.setColorFilter(Color.parseColor("#9e9e9e"), PorterDuff.Mode.MULTIPLY);
+        btnColor1.setColorFilter(Color.parseColor("#FF8000"), PorterDuff.Mode.MULTIPLY);
+        btnColor2.setColorFilter(Color.parseColor("#F0E68C"), PorterDuff.Mode.MULTIPLY);
+        btnColor3.setColorFilter(Color.parseColor("#00EEEE"), PorterDuff.Mode.MULTIPLY);
+        btnColor4.setColorFilter(Color.parseColor("#FF83FA"), PorterDuff.Mode.MULTIPLY);
+        btnColor5.setColorFilter(Color.parseColor("#e6cea8"), PorterDuff.Mode.MULTIPLY);
+        btnColor6.setColorFilter(Color.parseColor("#a56b46"), PorterDuff.Mode.MULTIPLY);
+        btnColor7.setColorFilter(Color.parseColor("#b55239"), PorterDuff.Mode.MULTIPLY);
+        btnColor8.setColorFilter(Color.parseColor("#ffaeb9"), PorterDuff.Mode.MULTIPLY);
+        btnColor9.setColorFilter(Color.parseColor("#8d4a43"), PorterDuff.Mode.MULTIPLY);
+        btnColor10.setColorFilter(Color.parseColor("#eee9e9"), PorterDuff.Mode.MULTIPLY);
+        btnColor11.setColorFilter(Color.parseColor("#91553d"), PorterDuff.Mode.MULTIPLY);
+        btnColor13.setColorFilter(Color.parseColor("#eee0e5"), PorterDuff.Mode.MULTIPLY);
+        btnColor13.setColorFilter(Color.parseColor("#ff4040"), PorterDuff.Mode.MULTIPLY);
+        btnColor14.setColorFilter(Color.parseColor("#d02090"), PorterDuff.Mode.MULTIPLY);
+        btnColor15.setColorFilter(Color.parseColor("#8e8e38"), PorterDuff.Mode.MULTIPLY);
+        btnColor16.setColorFilter(Color.parseColor("#71635a"), PorterDuff.Mode.MULTIPLY);
+        btnColor17.setColorFilter(Color.parseColor("#d8bfd8"), PorterDuff.Mode.MULTIPLY);
+        btnColor18.setColorFilter(Color.parseColor("#71c671"), PorterDuff.Mode.MULTIPLY);
         btnColor19.setColorFilter(Color.parseColor("#977961"), PorterDuff.Mode.MULTIPLY);
-        btnColor20.setColorFilter(Color.parseColor("#7D9EC0"), PorterDuff.Mode.MULTIPLY);
-        btnColor21.setColorFilter(Color.parseColor("#AB82FF"), PorterDuff.Mode.MULTIPLY);
-        btnColor22.setColorFilter(Color.parseColor("#FFB90F"), PorterDuff.Mode.MULTIPLY);
-        btnColor23.setColorFilter(Color.parseColor("#FFF5E1"), PorterDuff.Mode.MULTIPLY);
-        btnColor24.setColorFilter(Color.parseColor("#4876FF"), PorterDuff.Mode.MULTIPLY);
-        btnColor25.setColorFilter(Color.parseColor("#FFA07A"), PorterDuff.Mode.MULTIPLY);
-        btnColor26.setColorFilter(Color.parseColor("#BCD2EE"), PorterDuff.Mode.MULTIPLY);
-        btnColor27.setColorFilter(Color.parseColor("#7171C6"), PorterDuff.Mode.MULTIPLY);
-        btnColor28.setColorFilter(Color.parseColor("#C1FFC1"), PorterDuff.Mode.MULTIPLY);
-        btnColor29.setColorFilter(Color.parseColor("#B7A69E"), PorterDuff.Mode.MULTIPLY);
-        btnColor30.setColorFilter(Color.parseColor("#BCEE68"), PorterDuff.Mode.MULTIPLY);
+        btnColor20.setColorFilter(Color.parseColor("#7d9ec0"), PorterDuff.Mode.MULTIPLY);
+        btnColor21.setColorFilter(Color.parseColor("#ab82ff"), PorterDuff.Mode.MULTIPLY);
+        btnColor22.setColorFilter(Color.parseColor("#ffb90f"), PorterDuff.Mode.MULTIPLY);
+        btnColor23.setColorFilter(Color.parseColor("#fff5e1"), PorterDuff.Mode.MULTIPLY);
+        btnColor24.setColorFilter(Color.parseColor("#4876ff"), PorterDuff.Mode.MULTIPLY);
+        btnColor25.setColorFilter(Color.parseColor("#ffa07a"), PorterDuff.Mode.MULTIPLY);
+        btnColor26.setColorFilter(Color.parseColor("#bcd2ee"), PorterDuff.Mode.MULTIPLY);
+        btnColor27.setColorFilter(Color.parseColor("#7171c6"), PorterDuff.Mode.MULTIPLY);
+        btnColor28.setColorFilter(Color.parseColor("#c1ffc1"), PorterDuff.Mode.MULTIPLY);
+        btnColor29.setColorFilter(Color.parseColor("#b7a69e"), PorterDuff.Mode.MULTIPLY);
+        btnColor30.setColorFilter(Color.parseColor("#bcee68"), PorterDuff.Mode.MULTIPLY);
+        btnColor31.setColorFilter(Color.parseColor("#404040"), PorterDuff.Mode.MULTIPLY);
     }
 
 

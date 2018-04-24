@@ -684,7 +684,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="GoldenRed"
+                        android:text="LightBlue"
                         style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color19"
                         android:layout_marginTop="1dp"/>
@@ -724,7 +724,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="GoldenRed"
+                        android:text="MediaPurple"
                         style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color21"
                         android:layout_marginTop="1dp"/>
