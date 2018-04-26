@@ -78,13 +78,12 @@ public class CropImageViewActivity extends AppCompatActivity implements CropImag
         mOptions = new CropImageOptions();
         mOptions.validate();
         /*Lấy ra bitmap từ đường dẫn ảnh set ảnh*/
-/*
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-        bitmap = BitmapFactory.decodeFile(currentPathImage,options);
+        //BitmapFactory.Options options = new BitmapFactory.Options();
+        //options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+        //bitmapFreeSize = BitmapFactory.decodeFile(currentPathImage,options);
+        //Glide.with(this).load(currentPathImage).into(c);
         //Set ảnh lên crop image
-        civPhoto.setImageBitmap(bitmap);
-*/
+        //civPhoto.setImageBitmap(bitmapFreeSize);
 
         //Bundle bundle = getIntent().getBundleExtra(CropImage.CROP_IMAGE_EXTRA_BUNDLE);
         //uriImage = bundle.getParcelable(CropImage.CROP_IMAGE_EXTRA_SOURCE);

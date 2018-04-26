@@ -1,29 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\RxJava\\ManHairDev\\HairStyleSticker\\cropper\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v26\\values-v26.xml",
+            "outputFile": "D:\\Android\\AD4-2018\\ManHairStyle\\HairStyleSticker\\cropper\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v26\\values-v26.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\GMO\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.0.aar\\f894710b0b8b10c7c26a266c34cc575f\\res\\values-v26\\values-v26.xml",
-                    "from": {
-                        "startLines": "2,6",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,299",
-                        "endLines": "5,6",
-                        "endColumns": "12,96",
-                        "endOffsets": "294,391"
-                    },
-                    "to": {
-                        "startLines": "16,21",
-                        "startColumns": "4,4",
-                        "startOffsets": "896,1233",
-                        "endLines": "19,21",
-                        "endColumns": "12,96",
-                        "endOffsets": "1135,1325"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\GMO\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\971477574f408f723f8cb0711f9ad67c\\res\\values-v26\\values-v26.xml",
+                    "source": "C:\\Users\\MyPC\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\865200ade1ea98361101c0612e139ad4\\res\\values-v26\\values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",
@@ -39,6 +20,25 @@
                         "endLines": "2,3,7,11,15,20",
                         "endColumns": "74,86,12,12,12,92",
                         "endOffsets": "125,212,426,652,891,1228"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\MyPC\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.0.aar\\3e084405338b7257b502c87969564264\\res\\values-v26\\values-v26.xml",
+                    "from": {
+                        "startLines": "2,6",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,299",
+                        "endLines": "5,6",
+                        "endColumns": "12,96",
+                        "endOffsets": "294,391"
+                    },
+                    "to": {
+                        "startLines": "16,21",
+                        "startColumns": "4,4",
+                        "startOffsets": "896,1233",
+                        "endLines": "19,21",
+                        "endColumns": "12,96",
+                        "endOffsets": "1135,1325"
                     }
                 }
             ]

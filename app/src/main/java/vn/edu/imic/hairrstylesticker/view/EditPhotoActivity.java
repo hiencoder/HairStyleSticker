@@ -156,6 +156,7 @@ public class EditPhotoActivity extends AppCompatActivity {
     private String tagStyle;
     //Hien thi tag item
     private String tagItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -203,7 +204,6 @@ public class EditPhotoActivity extends AppCompatActivity {
         btnColor31.setColorFilter(Color.parseColor("#404040"), PorterDuff.Mode.MULTIPLY);
     }
 
-
     /*init data*/
     private void initData() {
         result = CropImage.getActivityResult(intent);
@@ -214,10 +214,16 @@ public class EditPhotoActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.btn_hair,R.id.btn_beard,R.id.btn_mus,R.id.btn_glasses,R.id.btn_tattoo,R.id.btn_cap,R.id.btn_suite,
-    R.id.btn_edit,R.id.btn_close_hair,R.id.btn_flip})
-    public void onClick(View v){
-        switch (v.getId()){
+    @OnClick({R.id.btn_hair, R.id.btn_beard, R.id.btn_mus, R.id.btn_glasses, R.id.btn_tattoo, R.id.btn_cap, R.id.btn_suite,
+            R.id.btn_edit, R.id.btn_close_hair, R.id.btn_flip,
+            R.id.ib_color1, R.id.ib_color2, R.id.ib_color3, R.id.ib_color4, R.id.ib_color5, R.id.ib_color6,
+            R.id.ib_color7, R.id.ib_color8, R.id.ib_color9, R.id.ib_color10, R.id.ib_color11, R.id.ib_color12,
+            R.id.ib_color13, R.id.ib_color14, R.id.ib_color15, R.id.ib_color16, R.id.ib_color17, R.id.ib_color18,
+            R.id.ib_color19, R.id.ib_color20, R.id.ib_color21, R.id.ib_color22, R.id.ib_color23, R.id.ib_color24,
+            R.id.ib_color25, R.id.ib_color26, R.id.ib_color27, R.id.ib_color28, R.id.ib_color29, R.id.ib_color30,
+            R.id.ib_color31})
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.btn_hair:
                 showHorizontalItem(1);
                 break;
@@ -264,7 +270,7 @@ public class EditPhotoActivity extends AppCompatActivity {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, (int) f);
         llItemStyle.setLayoutParams(layoutParams);
 
-        switch (index){
+        switch (index) {
             case 1:
                 itemSize = 31;
                 tagStyle = "img";
@@ -301,7 +307,7 @@ public class EditPhotoActivity extends AppCompatActivity {
         itemSize = 31;
         for (int i = 1; i < itemSize; i++) {
             /*Lay anh tu drawable*/
-            int identifier = getResources().getIdentifier(tagStyle + i,"drawable",getPackageName());
+            int identifier = getResources().getIdentifier(tagStyle + i, "drawable", getPackageName());
             final ImageButton imageButton = new ImageButton(this);
             imageButton.setLayoutParams(new LinearLayout.LayoutParams((int) f, (int) f));
             imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -327,7 +333,6 @@ public class EditPhotoActivity extends AppCompatActivity {
         super.onDestroy();
         unbinder.unbind();
     }
-
 
 
 }

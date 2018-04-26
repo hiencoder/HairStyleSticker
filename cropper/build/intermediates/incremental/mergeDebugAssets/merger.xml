@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="D:\RxJava\ManHairDev\HairStyleSticker\cropper\src\main\assets"/><source path="D:\RxJava\ManHairDev\HairStyleSticker\cropper\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="D:\RxJava\ManHairDev\HairStyleSticker\cropper\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="D:\Android\AD4-2018\ManHairStyle\HairStyleSticker\cropper\src\main\assets"/><source path="D:\Android\AD4-2018\ManHairStyle\HairStyleSticker\cropper\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="D:\Android\AD4-2018\ManHairStyle\HairStyleSticker\cropper\src\debug\assets"/></dataSet></merger>

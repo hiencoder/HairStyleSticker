@@ -137,11 +137,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this,CropImageViewActivity.class);
             intent.putExtra(Const.KEY_PHOTO_PATH,currentPhotoPath);
             startActivity(intent);
-            myPhotoPath = null;
+            currentPhotoPath = null;
         }
     }
 
-
+    //https://android.jlelse.eu/androids-new-image-capture-from-a-camera-using-file-provider-dd178519a954
+    //https://developer.android.com/training/camera/photobasics
     /*Add pic to gallery*/
     private void addPicToGallery() {
         Intent iScanMedia = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
