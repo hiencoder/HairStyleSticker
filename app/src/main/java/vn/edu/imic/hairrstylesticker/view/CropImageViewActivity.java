@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageOptions;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -60,6 +62,10 @@ public class CropImageViewActivity extends AppCompatActivity implements CropImag
     /*the options that were set for the crop image*/
     private CropImageOptions mOptions;
 
+    @BindView(R.id.img_data)
+    ImageView imgData;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,13 +87,14 @@ public class CropImageViewActivity extends AppCompatActivity implements CropImag
         //BitmapFactory.Options options = new BitmapFactory.Options();
         //options.inPreferredConfig = Bitmap.Config.ARGB_8888;
         //bitmapFreeSize = BitmapFactory.decodeFile(currentPathImage,options);
-        //Glide.with(this).load(currentPathImage).into(c);
+        //Glide.with(this).load(currentPathImage).into(imgData);
         //Set ảnh lên crop image
         //civPhoto.setImageBitmap(bitmapFreeSize);
 
         //Bundle bundle = getIntent().getBundleExtra(CropImage.CROP_IMAGE_EXTRA_BUNDLE);
         //uriImage = bundle.getParcelable(CropImage.CROP_IMAGE_EXTRA_SOURCE);
         //mOptions = bundle.getParcelable(CropImage.CROP_IMAGE_EXTRA_OPTIONS);
+
 
         //Set ảnh sử dụng uri
         uriInput = Uri.fromFile(new File(currentPathImage));

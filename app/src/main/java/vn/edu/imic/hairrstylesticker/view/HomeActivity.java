@@ -27,7 +27,13 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.PermissionRequestErrorListener;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -102,6 +108,12 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }).onSameThread().check();
         }
+
+        try {
+            Log.d(TAG, "onCreate: " + formatDate(Calendar.getInstance().getTime().toString()).toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     /*Show setting dialog*/
@@ -148,4 +160,15 @@ public class HomeActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    /*Date*/
+    public Date formatDate(String strDate) throws ParseException {
+        DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.US);
+        Date date1 = (Date)dateFormat.parse(strDate);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date1);
+        return date1;
+    }
+
+    //http://rmr.wikia.com/wiki/Groovy_Date_Parsing_and_Formatting
 }

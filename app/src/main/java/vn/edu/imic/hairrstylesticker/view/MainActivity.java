@@ -9,13 +9,17 @@ import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
     private String currentPhotoPath;
     /*Bien duong danh anh tu gallery*/
     private String myPhotoPath;
+    @BindView(R.id.img_data)
+    ImageView imgData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
     /*Xu ly mo camera*/
     private void handleOpenCamera(){
-        Intent iOpenCamera = new Intent("android.media.action.IMAGE_CAPTURE");
+        Intent iOpenCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (iOpenCamera.resolveActivity(getPackageManager()) != null){
             if (createImageFile() != null){
                 //Tao file image
@@ -87,9 +94,10 @@ public class MainActivity extends AppCompatActivity {
     private File createImageFile(){
         File image = null;
         try {
-            image = File.createTempFile("JPEG_" +
-            new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()) + "_",
-                    ".jpg",getExternalFilesDir(Environment.DIRECTORY_PICTURES));
+            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+            String imageFileName = "IMG_" + timeStamp + "_";
+            File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+            image = File.createTempFile(imageFileName,".jpg",storageDir);
             currentPhotoPath = image.getAbsolutePath();
             return image;
         } catch (IOException e) {
@@ -134,10 +142,13 @@ public class MainActivity extends AppCompatActivity {
         /*Lay ra anh vua chup cua camera dua sang CropImageViewActivity*/
         if (currentPhotoPath != null){
             addPicToGallery();
+            Log.d("ImagePath", "takePictureCamera: " + currentPhotoPath);
             Intent intent = new Intent(this,CropImageViewActivity.class);
             intent.putExtra(Const.KEY_PHOTO_PATH,currentPhotoPath);
-            startActivity(intent);
-            currentPhotoPath = null;
+            imgData.setImageURI(Uri.parse(currentPhotoPath));
+            //Glide.with(this).load(currentPhotoPath).into(imgData);
+            //startActivity(intent);
+            //currentPhotoPath = null;
         }
     }
 

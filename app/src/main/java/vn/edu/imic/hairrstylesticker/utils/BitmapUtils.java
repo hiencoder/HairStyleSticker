@@ -1,6 +1,7 @@
 package vn.edu.imic.hairrstylesticker.utils;
 
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 
 /**
  * Created by GMO on 4/19/2018.
@@ -24,5 +25,13 @@ public class BitmapUtils {
                     srcBitmap.getWidth());
         }
         return desBitmap;
+    }
+
+    /*Hàm rotate bitmap*/
+    public static Bitmap rotateBitmap(Bitmap srcBitmap){
+        Matrix matrix = new Matrix();
+        matrix.postRotate(90);
+        Bitmap bmRotated = Bitmap.createBitmap(srcBitmap,0,0,srcBitmap.getWidth(),srcBitmap.getHeight());
+        return bmRotated;
     }
 }

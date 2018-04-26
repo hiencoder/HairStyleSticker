@@ -95,17 +95,20 @@
         android:background="#00ffffff"
         android:adjustViewBounds="true"
         app:layout_constraintTop_toBottomOf="@+id/ll_top"
-        app:layout_constraintBottom_toTopOf="@+id/rl_styles"/>
+        app:layout_constraintBottom_toTopOf="@+id/rl_styles"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
     <!--ImageView show style choose-->
     <ImageView
         android:id="@+id/img_choose_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:scaleType="matrix"
         android:background="#00ffffff"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/rl_styles"/>
 
     <!--Layout styles-->
     <RelativeLayout

@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 import butterknife.BindView;
@@ -157,6 +158,8 @@ public class EditPhotoActivity extends AppCompatActivity {
     //Hien thi tag item
     private String tagItem;
 
+    /*Item duoc chon*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -244,14 +247,45 @@ public class EditPhotoActivity extends AppCompatActivity {
                 break;
             case R.id.btn_suite:
                 break;
+            case R.id.btn_close_hair:
+                /*Ẩn HorizontalScrollView item*/
+                if (hsvItem.getVisibility() == View.VISIBLE && rlColor.getVisibility() == View.VISIBLE) {
+                    hsvItem.setVisibility(View.INVISIBLE);
+                    rlColor.setVisibility(View.INVISIBLE);
+                    btnCloseHair.setVisibility(View.INVISIBLE);
+                    btnRotate.setVisibility(View.INVISIBLE);
+                    btnSaveHair.setVisibility(View.INVISIBLE);
+                }
+                //Hiển thị categories
+                if (rlStyles.getVisibility() == View.INVISIBLE) {
+                    rlStyles.setVisibility(View.VISIBLE);
+                }
+                break;
+            case R.id.btn_rotate:
+                /*Rotate item selected*/
+
+                break;
+            case R.id.btn_save_hair:
+                break;
+            case R.id.btn_edit:
+                openEditEffectActivity();
+                break;
         }
     }
 
+    /**
+     *
+     */
+    private void openEditEffectActivity() {
 
+    }
+
+
+    //https://www.youtube.com/watch?v=a08gJ_tw_14
     /*Show hair item*/
     private void showHorizontalItem(int index) {
         /*Get item type hair*/
-        //Ẩm Relative style
+        //Ẩn Relative style
         rlStyles.setVisibility(View.INVISIBLE);
         //Hien thi layout chua horizontal
         rlColor.setVisibility(View.VISIBLE);
@@ -307,7 +341,7 @@ public class EditPhotoActivity extends AppCompatActivity {
         itemSize = 31;
         for (int i = 1; i < itemSize; i++) {
             /*Lay anh tu drawable*/
-            int identifier = getResources().getIdentifier(tagStyle + i, "drawable", getPackageName());
+            final int identifier = getResources().getIdentifier(tagStyle + i, "drawable", getPackageName());
             final ImageButton imageButton = new ImageButton(this);
             imageButton.setLayoutParams(new LinearLayout.LayoutParams((int) f, (int) f));
             imageButton.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -321,6 +355,8 @@ public class EditPhotoActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Logger.i(tagItem, (String) imageButton.getTag());
+                    //set item duoc chon resize item
+                    Glide.with(EditPhotoActivity.this).load(identifier).into(imgChooseStyle);
                 }
             });
             llItemStyle.addView(imageButton);
