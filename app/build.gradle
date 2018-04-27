@@ -59,5 +59,8 @@ dependencies {
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
 
     implementation 'com.facebook.android:audience-network-sdk:4+'
+
+    /*Cropper imageview*/
+    implementation 'com.edmodo:cropper:1.0.1'
     api project(':cropper')
 }

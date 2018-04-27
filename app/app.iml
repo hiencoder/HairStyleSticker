@@ -107,7 +107,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
-    <orderEntry type="jdk" jdkName="Android API 27 Platform (1)" jdkType="Android SDK" />
+    <orderEntry type="jdk" jdkName="Android API 27 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="com.android.support:multidex-1.0.2" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-base-10.0.1" level="project" />
@@ -123,6 +123,7 @@
     <orderEntry type="library" name="com.android.databinding:library-1.3.1" level="project" />
     <orderEntry type="library" name="com.android.support:recyclerview-v7-27.1.0" level="project" />
     <orderEntry type="library" name="com.parse.bolts:bolts-tasks:1.4.0@jar" level="project" />
+    <orderEntry type="library" name="com.edmodo:cropper-1.0.1" level="project" />
     <orderEntry type="library" name="com.github.bumptech.glide:disklrucache:4.3.1@jar" level="project" />
     <orderEntry type="library" name="com.android.support:customtabs-27.0.2" level="project" />
     <orderEntry type="library" name="io.reactivex.rxjava2:rxjava:2.1.9@jar" level="project" />

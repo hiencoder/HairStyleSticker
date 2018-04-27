@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#212121"
+        android:gravity="center"
+        android:text="Image Selection"
+        android:textSize="20sp"
+        android:background="#ffffff"
+        android:padding="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <LinearLayout
+        android:id="@+id/ll_banner_ads"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:minHeight="50dp"
+        android:background="#ffffff">
+
+    </LinearLayout>
+
+    <!--Layout for button-->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/ll_banner_ads"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="#00ffffff"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5"/>
+        <LinearLayout
+            android:id="@+id/ll_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+            <RelativeLayout
+                android:id="@+id/rl_camera"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/btn_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/camera"
+                    android:scaleType="centerInside"
+                    android:layout_centerHorizontal="true"
+                    android:background="#00ffffff"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Camera"
+                    android:textSize="18sp"
+                    android:textColor="#212121"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/btn_camera"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/btn_gallery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/gallery"
+                    android:background="#00ffffff"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="centerInside"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gallery"
+                    android:textSize="18sp"
+                    android:textColor="#212121"
+                    android:layout_below="@+id/btn_gallery"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+<!--
+    <?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="#bdbdbd" android:layout_width="match_parent" android:layout_height="match_parent">
+        <TextView android:textSize="20sp" android:textColor="#212121" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/text2" android:background="#ffffff" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x3201" android:text="Image Selection" />
+        <LinearLayout android:orientation="horizontal" android:id="@+id/bannerAd" android:background="#802c2c" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/text2" />
+        <LinearLayout android:orientation="horizontal" android:id="@+id/buttonLayout" android:background="#00ffffff" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <ImageButton android:id="@+id/camera" android:background="#00ffffff" android:layout_width="UNKNOWN_DATA_0x3c01" android:layout_height="UNKNOWN_DATA_0x3c01" android:src="@drawable/camera" android:scaleType="centerInside" android:layout_centerHorizontal="true" />
+                <TextView android:textSize="18dp" android:textColor="#212121" android:id="@+id/gallery_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Camera" android:layout_below="@+id/camera" android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <ImageButton android:id="@+id/gallery" android:background="#00ffffff" android:layout_width="UNKNOWN_DATA_0x3c01" android:layout_height="UNKNOWN_DATA_0x3c01" android:src="@drawable/gallery" android:scaleType="centerInside" android:layout_centerHorizontal="true" />
+                <TextView android:textSize="18dp" android:textColor="#212121" android:id="@+id/camera_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Gallery" android:layout_below="@+id/gallery" android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+        </LinearLayout>
+        <RelativeLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@+id/adLayout" android:layout_width="wrap_content" android:layout_height="UNKNOWN_DATA_0x12c01" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+            <LinearLayout android:id="@+id/textLayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_above="@+id/adlayout1">
+                <TextView android:textSize="18dp" android:textColor="#212121" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/text9" android:background="#ffffff" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1e01" android:layout_marginBottom="20dp" android:text="Appwallet Apps" android:layout_above="@+id/adlayout1" />
+            </LinearLayout>
+            <LinearLayout android:id="@+id/adlayout1" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_above="@+id/adlayout2" android:layout_centerHorizontal="true">
+                <RelativeLayout android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <ImageButton android:id="@+id/adid1" android:background="#00ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ad_logo" android:layout_centerHorizontal="true" android:onClick="openStore" />
+                    <TextView android:textColor="#212121" android:id="@+id/adname1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="more apps" android:layout_below="@+id/adid1" android:layout_centerHorizontal="true" />
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <ImageButton android:id="@+id/adid2" android:background="#00ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ad_logo" android:layout_centerHorizontal="true" android:onClick="openStore" />
+                    <TextView android:textSize="15dp" android:textColor="#212121" android:id="@+id/adname2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="more apps" android:layout_below="@+id/adid2" android:layout_centerHorizontal="true" />
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <ImageButton android:id="@+id/adid3" android:background="#00ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ad_logo" android:layout_centerHorizontal="true" android:onClick="openStore" />
+                    <TextView android:textSize="15dp" android:textColor="#212121" android:id="@+id/adname3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="more apps" android:layout_below="@+id/adid3" android:layout_centerHorizontal="true" />
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/adlayout2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+                <RelativeLayout android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <ImageButton android:id="@+id/adid4" android:background="#00ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ad_logo" android:layout_centerHorizontal="true" android:onClick="openStore" />
+                    <TextView android:textColor="#212121" android:id="@+id/adname4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="more apps" android:layout_below="@+id/adid4" android:layout_centerHorizontal="true" />
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <ImageButton android:id="@+id/adid5" android:background="#00ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ad_logo" android:layout_centerHorizontal="true" android:onClick="openStore" />
+                    <TextView android:textSize="15dp" android:textColor="#212121" android:id="@+id/adname5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="more apps" android:layout_below="@+id/adid5" android:layout_centerHorizontal="true" />
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <ImageButton android:id="@+id/adid6" android:background="#00ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ad_logo" android:layout_centerHorizontal="true" android:onClick="openStore" />
+                    <TextView android:textSize="15dp" android:textColor="#212121" android:id="@+id/adname6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="more apps" android:layout_below="@+id/adid6" android:layout_centerHorizontal="true" />
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout android:id="@+id/Crop_Activity" android:background="#000" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent"
+        <RelativeLayout android:background="#a5ffffff" android:layout_width="match_parent" android:layout_height="match_parent">
+            <LinearLayout android:orientation="horizontal" android:id="@+id/Header_Layout" android:background="#ffffff" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x3201" android:weightSum="4.0">
+                <Button android:textColor="#212121" android:id="@+id/free_size" android:background="#00ffffff" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:text="Free Size" android:layout_weight="1.0" android:textAllCaps="false" />
+                <Button android:textColor="#212121" android:id="@+id/square" android:background="#00ffffff" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:text="Square" android:layout_weight="1.0" android:textAllCaps="false" />
+                <Button android:textColor="#212121" android:id="@+id/rotate" android:background="#00ffffff" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:text="Rotate" android:layout_weight="1.0" android:textAllCaps="false" />
+                <Button android:textColor="#212121" android:id="@+id/done" android:background="#00ffffff" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:text="Done" android:layout_weight="1.0" android:textAllCaps="false" />
+            </LinearLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@+id/Header_Layout">
+                <com.edmodo.cropper.CropImageView android:id="@+id/CropImageView" android:background="#00ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="centerInside" android:adjustViewBounds="true" android:layout_centerInParent="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
+-->
+</android.support.constraint.ConstraintLayout>
