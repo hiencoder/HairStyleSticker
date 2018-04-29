@@ -62,5 +62,4 @@ dependencies {
 
     /*Cropper imageview*/
     implementation 'com.edmodo:cropper:1.0.1'
-    api project(':cropper')
 }

@@ -6,7 +6,6 @@ import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
@@ -16,7 +15,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.theartofdev.edmodo.cropper.CropImage;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,7 +28,6 @@ public class EditPhotoActivity extends AppCompatActivity {
     private Intent intent;
     private Uri uri;
     /*Crop image result*/
-    CropImage.ActivityResult result;
     private Unbinder unbinder;
 
     /*Top*/
@@ -208,11 +205,13 @@ public class EditPhotoActivity extends AppCompatActivity {
 
     /*init data*/
     private void initData() {
+/*
         result = CropImage.getActivityResult(intent);
         if (result != null) {
             Log.d(TAG, "initData: " + result.getUri());
             imgCrop.setImageURI(result.getUri());
         }
+*/
 
     }
 

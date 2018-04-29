@@ -156,7 +156,7 @@ public class HomeActivity extends AppCompatActivity {
     public void onClick(View v){
         switch (v.getId()){
             case R.id.btn_start:
-                startActivity(new Intent(HomeActivity.this,MainActivity.class));
+                startActivity(new Intent(HomeActivity.this,CropImageActivity.class));
                 break;
         }
     }

@@ -16,6 +16,10 @@
     <string name="txt_style">Styles</string>
     <string name="txt_edit">Edit</string>
 
+    <string name="txt_free_size">Free Size</string>
+    <string name="txt_square">Square</string>
+    <string name="txt_rotate">Rotate</string>
+    <string name="txt_done">Done</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

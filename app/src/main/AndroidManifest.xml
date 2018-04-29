@@ -38,10 +38,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.CropImageViewActivity" />
         <activity android:name=".view.EditPhotoActivity" />
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
         <activity android:name=".view.EffectActivity"></activity>
+        <activity android:name=".view.CropImageActivity"></activity>
     </application>
 
 </manifest>

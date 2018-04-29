@@ -1,57 +1,23 @@
 package vn.edu.imic.hairrstylesticker.view;
 
 import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.design.widget.Snackbar;
 import android.support.v4.content.FileProvider;
-import android.support.v4.internal.view.SupportMenu;
 import android.support.v7.app.AppCompatActivity;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
-import com.facebook.ads.AdSettings;
-import com.facebook.ads.AdSize;
-import com.google.android.exoplayer2.util.MimeTypes;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.xml.sax.InputSource;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Random;
-
-import javax.xml.parsers.DocumentBuilderFactory;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -80,8 +46,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imgData;
 
     /*Duong dan luu anh*/
-    private static final String FOLDER_NAME = "photoedit/Image";
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -160,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 myPhotoPath = cursor.getString(cursor.getColumnIndex(filePathColumn[0]));
                 //Dua duong dan anh vao intent
                 data.putExtra(Const.KEY_PHOTO_PATH,myPhotoPath);
-                data.setClass(this,CropImageViewActivity.class);
+                //data.setClass(this,CropImageViewActivity.class);
                 /*Chỉnh sửa gọi đến phương thức getIntent của CropImage*/
                 cursor.close();
                 startActivity(data);
@@ -178,8 +143,8 @@ public class MainActivity extends AppCompatActivity {
         if (currentPhotoPath != null){
             addPicToGallery();
             Log.d("ImagePath", "takePictureCamera: " + currentPhotoPath);
-            Intent intent = new Intent(this,CropImageViewActivity.class);
-            intent.putExtra(Const.KEY_PHOTO_PATH,currentPhotoPath);
+            //Intent intent = new Intent(this,CropImageViewActivity.class);
+            //intent.putExtra(Const.KEY_PHOTO_PATH,currentPhotoPath);
             imgData.setImageURI(Uri.parse(currentPhotoPath));
             //Glide.with(this).load(currentPhotoPath).into(imgData);
             //startActivity(intent);
