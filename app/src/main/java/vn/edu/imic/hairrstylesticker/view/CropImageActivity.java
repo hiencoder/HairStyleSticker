@@ -123,6 +123,7 @@ public class CropImageActivity extends AppCompatActivity{
 
     }
 
+    //http://www.appwallettech.com/appwalletftp/StartAdFile.xml
     /*Handle rotate*/
     private void handleRotate() {
 
