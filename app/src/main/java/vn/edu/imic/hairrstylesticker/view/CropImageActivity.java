@@ -130,12 +130,12 @@ public class CropImageActivity extends AppCompatActivity{
 
     /*Handle square size*/
     private void handleSquareSize() {
-
+        civImage.setFixedAspectRatio(true);
     }
 
     /*Handle Freesize*/
     private void handleFreeSize() {
-
+        civImage.setFixedAspectRatio(false);
     }
 
     /*Open gallery*/
