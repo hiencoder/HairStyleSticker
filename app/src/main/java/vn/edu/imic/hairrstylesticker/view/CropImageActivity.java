@@ -81,7 +81,7 @@ public class CropImageActivity extends AppCompatActivity{
     private Bitmap bitmapSelected;
 
 
-    private static final String FOLDER_NAME = "photoedit/Image";
+    private static final String FOLDER_NAME = "photoedit/Image/";
 
     private Unbinder unbinder;
 
@@ -103,14 +103,39 @@ public class CropImageActivity extends AppCompatActivity{
                 openGallery();
                 break;
             case R.id.btn_free_size:
+                handleFreeSize();
                 break;
             case R.id.btn_square:
+                handleSquareSize();
                 break;
             case R.id.btn_rotate:
+                handleRotate();
                 break;
             case R.id.btn_done:
+                handleSave();
                 break;
         }
+    }
+
+
+    /*Handle save*/
+    private void handleSave() {
+
+    }
+
+    /*Handle rotate*/
+    private void handleRotate() {
+
+    }
+
+    /*Handle square size*/
+    private void handleSquareSize() {
+
+    }
+
+    /*Handle Freesize*/
+    private void handleFreeSize() {
+
     }
 
     /*Open gallery*/
