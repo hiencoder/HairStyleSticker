@@ -39,9 +39,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.EditPhotoActivity" />
-        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
-        <activity android:name=".view.EffectActivity"></activity>
-        <activity android:name=".view.CropImageActivity"></activity>
+        <activity android:name=".view.EffectActivity" />
+        <activity android:name=".view.CropImageActivity" />
+        <activity android:name=".view.EraserActivity"></activity>
     </application>
 
 </manifest>

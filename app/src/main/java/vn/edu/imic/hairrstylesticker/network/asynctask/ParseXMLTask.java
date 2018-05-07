@@ -1,11 +1,43 @@
 package vn.edu.imic.hairrstylesticker.network.asynctask;
 
+import android.os.AsyncTask;
+
+import org.w3c.dom.NodeList;
+
+import vn.edu.imic.hairrstylesticker.view.CropImageActivity;
+
 /**
  * Created by MyPC on 04/05/2018.
  */
 
-public class ParseXMLTask {
-/*
+public class ParseXMLTask extends AsyncTask<String, Void, NodeList>{
+    CropImageActivity cropImageActivity;
+
+    public ParseXMLTask(CropImageActivity cropImageActivity) {
+        this.cropImageActivity = cropImageActivity;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
+
+    @Override
+    protected NodeList doInBackground(String... strings) {
+        return null;
+    }
+
+    @Override
+    protected void onProgressUpdate(Void... values) {
+        super.onProgressUpdate(values);
+    }
+
+    @Override
+    protected void onPostExecute(NodeList nodeList) {
+        super.onPostExecute(nodeList);
+    }
+
+    /*
     public class AsyncTaskRunner extends AsyncTask<String, Void, NodeList> {
         final */
 /* synthetic *//*

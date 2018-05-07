@@ -20,6 +20,11 @@
     <string name="txt_square">Square</string>
     <string name="txt_rotate">Rotate</string>
     <string name="txt_done">Done</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Effect-->
+    <string name="txt_back">Back</string>
+    <string name="txt_effect">Effects</string>
 </resources>
