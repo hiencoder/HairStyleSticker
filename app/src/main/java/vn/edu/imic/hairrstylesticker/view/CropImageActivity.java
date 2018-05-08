@@ -137,6 +137,11 @@ public class CropImageActivity extends AppCompatActivity {
     private void handleSave() {
         try {
             Uri saveBitmap = saveBitmap(civImage.getCroppedImage());
+            Intent intent = new Intent(this,EditPhotoActivity.class);
+            intent.putExtra(Const.KEY_PHOTO_URI,saveBitmap.toString());
+            startActivity(intent);
+            finish();
+            rlCropActivity.setVisibility(View.INVISIBLE);
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }

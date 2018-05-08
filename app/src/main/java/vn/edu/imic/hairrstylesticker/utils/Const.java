@@ -21,4 +21,5 @@ public class Const {
     public static final String KEY_DATA_IMAGE_CROP = "crop_image";
 
     public static final String KEY_STYLE = "style";
+
 }
