@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/HairStyleSticker.iml" filepath="$PROJECT_DIR$/HairStyleSticker.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/cropper/cropper.iml" filepath="$PROJECT_DIR$/cropper/cropper.iml" />
-      <module fileurl="file://D:\Android\AD4-2018\ManHairStyle\HairStyleSticker\cropper\cropper.iml" filepath="D:\Android\AD4-2018\ManHairStyle\HairStyleSticker\cropper\cropper.iml" />
     </modules>
   </component>
 </project>

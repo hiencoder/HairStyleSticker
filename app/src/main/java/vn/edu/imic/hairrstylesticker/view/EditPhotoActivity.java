@@ -1,12 +1,20 @@
 package vn.edu.imic.hairrstylesticker.view;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.PointF;
 import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
@@ -14,15 +22,25 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import vn.edu.imic.hairrstylesticker.R;
+import vn.edu.imic.hairrstylesticker.utils.ConnectionUtils;
 import vn.edu.imic.hairrstylesticker.utils.Logger;
+import vn.edu.imic.hairrstylesticker.view.custom.MoveGestureDetector;
+import vn.edu.imic.hairrstylesticker.view.custom.RotateGestureDetector;
 
 public class EditPhotoActivity extends AppCompatActivity {
     private static final String TAG = EditPhotoActivity.class.getSimpleName();
@@ -174,14 +192,258 @@ public class EditPhotoActivity extends AppCompatActivity {
     private int imageHeight;
 
     private int alpha = 255;
+    private MoveGestureDetector moveGestureDetector;
     private float focusX = 0.0f;
     private float focusY = 0.0f;
+    private int h;
+    private int g;
+    private RotateGestureDetector rotateGestureDetector;
+    private float rotationDegrees = 0.0f;
+    private ScaleGestureDetector scaleGestureDetector;
+    private float scaleFactor = 0.2f;
+    private int ak;
+    static int z;
+    private class MoveListener extends MoveGestureDetector.SimpleOnMoveGestureListener {
+        final EditPhotoActivity editPhotoActivity;
+
+        private MoveListener(EditPhotoActivity editPhotoActivity) {
+            this.editPhotoActivity = editPhotoActivity;
+        }
+
+        public boolean onMove(MoveGestureDetector moveGestureDetector) {
+            PointF focusDelta = moveGestureDetector.getFocusDelta();
+            editPhotoActivity.focusX = editPhotoActivity.focusX + focusDelta.x;
+            editPhotoActivity.focusY = editPhotoActivity.focusY + focusDelta.y;
+            if (editPhotoActivity.focusX <= 0.0f) {
+                editPhotoActivity.focusX = 0.0f;
+            } else if (editPhotoActivity.focusY <= 0.0f) {
+                editPhotoActivity.focusY = 0.0f;
+            } else if (editPhotoActivity.focusX > (float) editPhotoActivity.h) {
+                editPhotoActivity.focusX = (float) editPhotoActivity.h;
+            } else if (editPhotoActivity.focusY > (float) editPhotoActivity.g) {
+                editPhotoActivity.focusY = (float) editPhotoActivity.g;
+            }
+            return true;
+        }
+    }
+
+    private class RotateListener extends RotateGestureDetector.SimpleOnRotateGestureListener {
+        final EditPhotoActivity editPhotoActivity;
+
+        public RotateListener(EditPhotoActivity editPhotoActivity) {
+            this.editPhotoActivity = editPhotoActivity;
+        }
+
+        public boolean onRotate(RotateGestureDetector rotateGestureDetector) {
+            editPhotoActivity.rotationDegrees = editPhotoActivity.rotationDegrees - rotateGestureDetector.getRotationDegreesDelta();
+            return true;
+        }
+    }
+
+    private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        final EditPhotoActivity editPhotoActivity;
+
+        public ScaleListener(EditPhotoActivity editPhotoActivity) {
+            this.editPhotoActivity = editPhotoActivity;
+        }
+
+        public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
+            editPhotoActivity.scaleFactor = editPhotoActivity.scaleFactor * scaleGestureDetector.getScaleFactor();
+            editPhotoActivity.scaleFactor = Math.max(0.1f, Math.min(editPhotoActivity.scaleFactor, 3.0f));
+            editPhotoActivity.ak = (int) (editPhotoActivity.scaleFactor * 100000.0f);
+            //Sử dụng Vertical Seekbar
+            return true;
+        }
+    }
+
+    /**
+     * @param context
+     */
+    public static void deleteCache(Context context) {
+        try {
+            deleteDir(context.getCacheDir());
+        } catch (Exception ex) {
+
+        }
+    }
+
+    /**
+     * Phương thức xóa đường dẫn file
+     *
+     * @param file
+     */
+    private static boolean deleteDir(File file) {
+        if (file == null || !file.isDirectory()) {
+            //Nêu file null hoặc không có đường dẫn file
+            return (file == null || !file.isFile()) ? false : file.delete();
+        } else {
+            String[] list = file.list();
+            for (String file2 : list) {
+                if (!deleteDir(new File(file, file2))) {
+                    return false;
+                }
+            }
+            return file.delete();
+        }
+    }
+
+    /*Phương thức xoay bitmap*/
+    public static Bitmap flip(Bitmap bitmap, int i) {
+        Matrix matrix = new Matrix();
+        if (i == 1) {
+            matrix.preScale(1.0f, -1.0f);
+        } else if (i != 2) {
+            return null;
+        } else {
+            matrix.preScale(-1.0f, 1.0f);
+        }
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+    }
+
+    /**
+     * Phương thức trả về chiều của ảnh
+     *
+     * @param editPhotoActivity
+     * @param uri
+     * @return
+     */
+    private int getOrientation(EditPhotoActivity editPhotoActivity, Uri uri) {
+        Cursor cursor = editPhotoActivity.getContentResolver().query(uri, new String[]{"orientation"},
+                null, null, null);
+        if (cursor.getCount() != 1) {
+            return -1;
+        } else {
+            cursor.moveToFirst();
+            return cursor.getInt(0);
+        }
+    }
+
+    /**
+     * @param editPhotoActivity
+     * @param uri
+     * @return
+     */
+    private Bitmap scaleBitmap(EditPhotoActivity editPhotoActivity, Uri uri) {
+        int i;
+        int i2;
+        Bitmap decodeStream;
+        try {
+            InputStream is = editPhotoActivity.getContentResolver().openInputStream(uri);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeStream(is,null,options);
+            is.close();
+            int orientation = getOrientation(editPhotoActivity,uri);
+            Logger.i("Orientation","Orientation: " + orientation);
+            if (orientation == 90 || orientation == 270){
+                i = options.outHeight;
+                i2 = options.outWidth;
+            }else {
+                i = options.outWidth;
+                i2 = options.outHeight;
+            }
+
+            InputStream is2 = editPhotoActivity.getContentResolver().openInputStream(uri);
+            if (i > z || i2 > z){
+                float max = Math.max(((float)i)/ ((float)z),((float) i2) / ((float) z));
+                BitmapFactory.Options options2 = new BitmapFactory.Options();
+                options2.inSampleSize = (int) max;
+                decodeStream = BitmapFactory.decodeStream(is2,null,options2);
+            }else {
+                decodeStream = BitmapFactory.decodeStream(is2);
+            }
+            is2.close();
+            if (orientation > 0){
+                Matrix matrix = new Matrix();
+                matrix.postRotate((float) orientation);
+                decodeStream = Bitmap.createBitmap(decodeStream,0,0,decodeStream.getWidth(),decodeStream.getHeight(),matrix,true);
+            }
+            //Lấy ra type của uri
+            String type = editPhotoActivity.getContentResolver().getType(uri);
+            //Tạo luồng outputStream để chứa dữ liệu ra
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            if (type.equals("image/png")){ //Nếu ảnh là png
+                /*Tạo ra phiên bản nén của bitmap đưa vào outputStream với định dạng ảnh nén PNG,
+                * chất lượng (0-100). 0 là nén cho kích thước nhỏ, 100 nén cho chất lượng tối đa.
+                * outpuStream: để ghi dữ liệu nén.
+                * return true: Nếu nén thành công vào luồng đã chỉ định*/
+                decodeStream.compress(Bitmap.CompressFormat.PNG,100,byteArrayOutputStream);
+            }else if (type.equals("image/jpg") || (type.equals("image/jpeg"))){
+                //Nếu ảnh là định dạng jpg hoặc jpeg
+                decodeStream.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+            }
+            byte[] toByteArray = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.close();
+            /*Decode một bitmap từ một mảng byte đã xác định
+            * toByteArray: Mảng byte dữ liệu ảnh nén.
+            * 0: offset bắt đầu đưa dữ liệu ảnh vào
+            * toByteArray.length: Số byte cần parse tính từ offset
+            * return: Bitmap sau khi được giải mã*/
+            return BitmapFactory.decodeByteArray(toByteArray,0,toByteArray.length);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     *Phương thức scale bitmap fit theo chiều rộng
+     * @param bitmap
+     * @param i
+     * @param i2
+     * @return
+     */
+    public static Bitmap scaleToFitWidth(Bitmap bitmap, int i, int i2){
+       return ((float)bitmap.getHeight()) > ((float)bitmap.getWidth()) ?
+               Bitmap.createScaledBitmap(bitmap, (int) ((((float)i2)/((float)bitmap.getHeight())) * ((float)bitmap.getWidth())),i2,true)
+               :Bitmap.createScaledBitmap(bitmap,i, (int) ((((float)i) / ((float)bitmap.getWidth())) * ((float)bitmap.getHeight())),true);
+    }
+
+    /*Phương thức kiểm tra network. Nếu không có network thì show ra dialog*/
+    public void checkNetworkConnection(){
+        if (ConnectionUtils.checkConnection(this)){
+            //nếu có internet show dialog
+            showDownloadDialog();
+        }else {
+            Toast.makeText(this, "Vui lòng kết nối internet", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void showDownloadDialog() {
+        //Chuỗi package app trên store
+        final String str = "com.appwallet.manphotosuits";
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog);
+        TextView btnTryLater = dialog.findViewById(R.id.btn_try_later);
+        TextView btnTryNow = dialog.findViewById(R.id.btn_try_now);
+        btnTryLater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Tạo intent gọi đến google play
+                Intent intent = new Intent("android.intent.action.VIEW");
+                Uri uri = Uri.parse("market://details?id=" + str);
+                intent.setData(uri);
+                startActivity(intent);
+                dialog.dismiss();
+            }
+        });
+        btnTryNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Open google play
+                finish();
+            }
+        });
+        dialog.show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Build.VERSION.SDK_INT < 16){
-            getWindow().setFlags(1024,1024);
+        if (Build.VERSION.SDK_INT < 16) {
+            getWindow().setFlags(1024, 1024);
         }
         setContentView(R.layout.activity_edit_photo_3);
         getWindow().addFlags(1024);
@@ -270,6 +532,7 @@ public class EditPhotoActivity extends AppCompatActivity {
                 showHorizontalItem(6);
                 break;
             case R.id.btn_suite:
+                checkNetworkConnection();
                 break;
             case R.id.btn_close_hair:
                 /*Ẩn HorizontalScrollView item*/

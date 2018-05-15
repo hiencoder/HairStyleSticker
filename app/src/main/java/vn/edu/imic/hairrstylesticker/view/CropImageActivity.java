@@ -136,9 +136,16 @@ public class CropImageActivity extends AppCompatActivity {
     /*Handle save*/
     private void handleSave() {
         try {
-            Uri saveBitmap = saveBitmap(civImage.getCroppedImage());
-            Intent intent = new Intent(this,EditPhotoActivity.class);
-            intent.putExtra(Const.KEY_PHOTO_URI,saveBitmap.toString());
+            Bitmap bm = civImage.getCroppedImage();
+            if (bm != null) {
+                Toast.makeText(this, "Change", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Null", Toast.LENGTH_SHORT).show();
+            }
+            Uri saveBitmap = saveBitmap(bm);
+            Logger.d("SaveBitmap", saveBitmap.toString());
+            Intent intent = new Intent(this, EditPhotoActivity.class);
+            intent.putExtra(Const.KEY_PHOTO_URI, saveBitmap.toString());
             startActivity(intent);
             finish();
             rlCropActivity.setVisibility(View.INVISIBLE);
@@ -152,7 +159,7 @@ public class CropImageActivity extends AppCompatActivity {
     private void handleRotate() {
         //Tăng góc quay 90 độ
         rotateDegree += 90;
-        if (rotateDegree == 360){
+        if (rotateDegree == 360) {
             rotateDegree = 0;
         }
         civImage.rotateImage(rotateDegree);
@@ -245,7 +252,7 @@ public class CropImageActivity extends AppCompatActivity {
                     return;
                 }
                 return;
-            }catch (Exception ex2){
+            } catch (Exception ex2) {
                 Toast.makeText(this, "Please select other image!", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -279,9 +286,15 @@ public class CropImageActivity extends AppCompatActivity {
         return Bitmap.createScaledBitmap(bm, (int) f, (int) f2, true);
     }
 
+    public void handleSaveBitmap(Bitmap bitmap) {
+        OutputStream outputStream = null;
+        int nextInt = new Random().nextInt(1000);
+        String fileName = "";
+    }
+
     /*Phuong thuc luu Bitmap*/
-    private Uri saveBitmap(Bitmap bm) throws Throwable {
-        OutputStream outputStream;
+    public Uri saveBitmap(Bitmap bm) {
+        FileOutputStream outputStream;
         ContentValues values;
         Throwable th;
         Uri uri = null;
@@ -293,7 +306,8 @@ public class CropImageActivity extends AppCompatActivity {
             file.mkdir();
         }
         int nextInt = new Random().nextInt(1000);
-        File file2 = new File(file, String.format("%s_%d.png", new Object[]{"TempImage", Integer.valueOf(nextInt)}));
+        File file2 = new File(file, String.format("%s_%d.png",
+                new Object[]{"TempImage", Integer.valueOf(nextInt)}));
         if (file2.exists() && file2.delete()) {
             try {
                 file2.createNewFile();
@@ -303,47 +317,22 @@ public class CropImageActivity extends AppCompatActivity {
         }
         try {
             outputStream = new FileOutputStream(file2);
-            try {
-                bm.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
-            } catch (Exception ex2) {
-                Object obj = outputStream;
-                if (uri != null) {
-                }
-                values = new ContentValues(3);
-                values.put("title", "TempImage");
-                values.put("mime_type", "image/jpeg");
-                values.put("_data", file2.getAbsolutePath());
-                uri = Uri.fromFile(file2.getAbsoluteFile());
-                getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-                return uri;
-            } catch (Throwable th2) {
-                th = th2;
-                if (outputStream == null) {
-                    throw th;
-                }
-                throw th;
-            }
-
-        } catch (Exception e3) {
+            bm.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+            //Object obj = outputStream;
             if (uri != null) {
             }
             values = new ContentValues(3);
-            values.put("title", "TempImage");
-            values.put("mime_type", "image/jpeg");
-            values.put("_data", file2.getAbsolutePath());
+            values.put(MediaStore.Images.Media.TITLE, "TempImage");
+            values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
+            values.put(MediaStore.Images.Media.DATA, file2.getAbsolutePath());
             uri = Uri.fromFile(file2.getAbsoluteFile());
             getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
             return uri;
-        } catch (Throwable th3) {
-            Throwable th4 = th3;
-            outputStream = null;
-            th = th4;
-            if (outputStream == null) {
-                throw th4;
-            }
-            throw th;
+
+        }catch (Exception ex){
+
         }
-        return uri;
+        return null;
     }
 
     @Override
@@ -369,7 +358,7 @@ public class CropImageActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         Runtime.getRuntime().gc();
-        if (bitmapSelected != null){
+        if (bitmapSelected != null) {
             bitmapSelected.recycle();
         }
         super.onDestroy();

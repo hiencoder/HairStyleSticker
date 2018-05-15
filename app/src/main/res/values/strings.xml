@@ -27,4 +27,10 @@
     <!--Effect-->
     <string name="txt_back">Back</string>
     <string name="txt_effect">Effects</string>
+
+    <!--Dialog-->
+    <string name="txt_dialog_title">Man Photo Suit Montage</string>
+    <string name="txt_dialog_message">Do you want to try 25+ suits?? Please download Man Photo Suit Montage app</string>
+    <string name="txt_dialog_button_yes">Try Now</string>
+    <string name="txt_dialog_button_no">Try Later</string>
 </resources>
