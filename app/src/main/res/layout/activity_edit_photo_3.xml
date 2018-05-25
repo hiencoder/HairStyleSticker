@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cl_activity_edit_photo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#bdbdbd">
     <!--Layout top-->
     <LinearLayout
@@ -13,264 +13,306 @@
         android:background="@android:color/white"
         android:orientation="horizontal"
         android:weightSum="4">
+
         <RelativeLayout
             android:id="@+id/btn_reset"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
+
             <ImageView
                 android:id="@+id/img_reset"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/reset"/>
+                android:src="@drawable/reset" />
+
             <TextView
+                style="@style/StyleTextEditPhoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                style="@style/StyleTextEditPhoto"
-                android:text="@string/txt_reset"/>
+                android:text="@string/txt_reset" />
         </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/btn_ad"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
+
             <ImageView
                 android:id="@+id/img_ad"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/ad"/>
+                android:src="@drawable/ad" />
+
             <TextView
+                style="@style/StyleTextEditPhoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                style="@style/StyleTextEditPhoto"
-                android:text="@string/txt_ad"/>
+                android:text="@string/txt_ad" />
         </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/btn_whats_new"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
+
             <ImageView
                 android:id="@+id/img_what_new"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/whats_new"/>
+                android:src="@drawable/whats_new" />
+
             <TextView
+                style="@style/StyleTextEditPhoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                style="@style/StyleTextEditPhoto"
-                android:text="@string/txt_new"/>
+                android:text="@string/txt_new" />
         </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/btn_save"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
+
             <ImageView
                 android:id="@+id/img_save"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/save"
-                android:layout_centerHorizontal="true"/>
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/save" />
+
             <TextView
+                style="@style/StyleTextEditPhoto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                style="@style/StyleTextEditPhoto"
-                android:text="@string/txt_save"/>
+                android:text="@string/txt_save" />
         </RelativeLayout>
     </LinearLayout>
 
     <!--ImageView show image uri-->
-    <ImageView
-        android:id="@+id/img_crop"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/rl_image"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#00ffffff"
-        android:adjustViewBounds="true"
-        app:layout_constraintTop_toBottomOf="@+id/ll_top"
         app:layout_constraintBottom_toTopOf="@+id/rl_styles"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-    <!--ImageView show style choose-->
-    <ImageView
-        android:id="@+id/img_choose_style"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:scaleType="matrix"
-        android:background="#00ffffff"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/rl_styles"/>
+        app:layout_constraintTop_toBottomOf="@+id/ll_top">
+
+        <ImageView
+            android:id="@+id/img_crop"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:background="#00ffffff" />
+        <!--ImageView show style choose-->
+        <ImageView
+            android:id="@+id/img_choose_style"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="#00ffffff"
+            android:scaleType="matrix"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
 
     <!--Layout styles-->
     <RelativeLayout
         android:id="@+id/rl_styles"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:background="@android:color/white"
-        android:visibility="visible">
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent">
+
         <LinearLayout
             android:id="@+id/ll_styles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="7">
+
             <RelativeLayout
                 android:id="@+id/btn_hair"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1">
+
                 <ImageView
                     android:id="@+id/img_hair"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/hair"
-                    android:layout_centerHorizontal="true"/>
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/hair" />
+
                 <TextView
+                    style="@style/StyleTextEditPhoto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_hairs"
-                    style="@style/StyleTextEditPhoto"/>
+                    android:text="@string/txt_hairs" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/btn_beard"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1">
+
                 <ImageView
                     android:id="@+id/img_beard"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/beard"
-                    android:layout_centerHorizontal="true"/>
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/beard" />
+
                 <TextView
+                    style="@style/StyleTextEditPhoto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_beard"
-                    style="@style/StyleTextEditPhoto"/>
+                    android:text="@string/txt_beard" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/btn_mus"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1">
+
                 <ImageView
                     android:id="@+id/img_mus"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/mustachi"
-                    android:layout_centerHorizontal="true"/>
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/mustachi" />
+
                 <TextView
+                    style="@style/StyleTextEditPhoto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_mus"
-                    style="@style/StyleTextEditPhoto"/>
+                    android:text="@string/txt_mus" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/btn_glasses"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1">
+
                 <ImageView
                     android:id="@+id/img_glasses"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/glass"
-                    android:layout_centerHorizontal="true"/>
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/glass" />
+
                 <TextView
+                    style="@style/StyleTextEditPhoto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_glasses"
-                    style="@style/StyleTextEditPhoto"/>
+                    android:text="@string/txt_glasses" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/btn_tattoo"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1">
+
                 <ImageView
                     android:id="@+id/img_tattoo"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/tattoo"
-                    android:layout_centerHorizontal="true"/>
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/tattoo" />
+
                 <TextView
+                    style="@style/StyleTextEditPhoto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_tattoos"
-                    style="@style/StyleTextEditPhoto"/>
+                    android:text="@string/txt_tattoos" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/btn_cap"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1">
+
                 <ImageView
                     android:id="@+id/img_cap"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/cap"
-                    android:layout_centerHorizontal="true"/>
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/cap" />
+
                 <TextView
+                    style="@style/StyleTextEditPhoto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_caps"
-                    style="@style/StyleTextEditPhoto"/>
+                    android:text="@string/txt_caps" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/btn_suite"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1">
+
                 <ImageView
                     android:id="@+id/img_suite"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/suite"
-                    android:layout_centerHorizontal="true"/>
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/suite" />
+
                 <TextView
+                    style="@style/StyleTextEditPhoto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_suits"
-                    style="@style/StyleTextEditPhoto"/>
+                    android:text="@string/txt_suits" />
             </RelativeLayout>
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/ll_style_edit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/ll_styles"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
+                android:gravity="center"
                 android:text="Styles"
-                android:textColor="#ff0000"
-                android:gravity="center"/>
+                android:textColor="#ff0000" />
+
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/bar"/>
+                android:src="@drawable/bar" />
+
             <TextView
                 android:id="@+id/btn_edit"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
-                android:text="Edit"
                 android:gravity="center"
-                android:textColor="#212121"/>
+                android:text="Edit"
+                android:textColor="#212121" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -279,658 +321,756 @@
         android:id="@+id/rl_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:background="@android:color/white"
-        android:visibility="invisible">
+        android:minHeight="100dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
         <HorizontalScrollView
             android:id="@+id/hsv_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffff"
-            android:layout_marginTop="6dp">
+            android:layout_marginTop="6dp"
+            android:background="#ffffff">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color0"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#9e9e9e"/>
+                        android:tint="#9e9e9e" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Original"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color0"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="Original" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color1"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#ff8000"/>
+                        android:tint="#ff8000" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="GoldenRed"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color1"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="GoldenRed" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_cop"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color2"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#f0e68c"/>
+                        android:tint="#f0e68c" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cop"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color2"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="Cop" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_ocean_blue"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color3"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#00eeee"/>
+                        android:tint="#00eeee" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="OceanBlue"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color3"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="OceanBlue" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_orchid"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color4"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#ff83fa"/>
+                        android:tint="#ff83fa" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Orchid"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color4"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="Orchid" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_light_blonde"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color5"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#e6cea8"/>
+                        android:tint="#e6cea8" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="LightBlonde"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color5"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="LightBlonde" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_light_red"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color6"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#a56b46"/>
+                        android:tint="#a56b46" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="LightRed"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color6"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="LightRed" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_light_gray"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color7"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#b55239"/>
+                        android:tint="#b55239" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="LightGray"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color7"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="LightGray" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_light_pink"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color8"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#ffaeb9"/>
+                        android:tint="#ffaeb9" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="LightPink"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color8"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="LightPink" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_dark_red"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color9"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#8d4a43"/>
+                        android:tint="#8d4a43" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="DarkRed"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color9"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="DarkRed" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_snow"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color10"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#eee9e9"/>
+                        android:tint="#eee9e9" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Snow"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color10"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="Snow" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_dark_brown"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color11"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#91553d"/>
+                        android:tint="#91553d" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="GoldenRed"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color11"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="GoldenRed" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_lavender"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color12"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#eee0e5"/>
+                        android:tint="#eee0e5" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="GoldenRed"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color12"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="GoldenRed" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_brown"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color13"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#ff4040"/>
+                        android:tint="#ff4040" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Brown"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color13"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="Brown" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_violet_red"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color14"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#d02090"/>
+                        android:tint="#d02090" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="GoldenRed"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color14"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="GoldenRed" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_olive"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color15"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#8e8e38"/>
+                        android:tint="#8e8e38" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Olivedrab"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color15"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="Olivedrab" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_dark_gray"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color16"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#71635a"/>
+                        android:tint="#71635a" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="GoldenRed"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color16"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="GoldenRed" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_thistle"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color17"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#d8bfd8"/>
+                        android:tint="#d8bfd8" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="GoldenRed"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color17"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="GoldenRed" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_chart_reuse"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color18"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#71c671"/>
+                        android:tint="#71c671" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Chartreuse"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color18"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="Chartreuse" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_light_blue"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color19"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#977961"/>
+                        android:tint="#977961" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="LightBlue"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color19"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="LightBlue" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_light_blue_2"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color20"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#7d9ec0"/>
+                        android:tint="#7d9ec0" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="LightBlue"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color20"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="LightBlue" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_media_purple"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color21"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#ab82ff"/>
+                        android:tint="#ab82ff" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="MediaPurple"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color21"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="MediaPurple" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_gold_enrod"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color22"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#ffb90f"/>
+                        android:tint="#ffb90f" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="GoldEnrod"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color22"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="GoldEnrod" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_white_blonde"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color23"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#fff5e1"/>
+                        android:tint="#fff5e1" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="WhiteBlonde"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color23"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="WhiteBlonde" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_royal_blue"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color24"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#4876ff"/>
+                        android:tint="#4876ff" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="RoyalBlue"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color24"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="RoyalBlue" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_light_salmon"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color25"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#ffa07a"/>
+                        android:tint="#ffa07a" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="LightSalmon"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color25"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="LightSalmon" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_steel_blue"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color26"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#bcd2ee"/>
+                        android:tint="#bcd2ee" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="SteelBlue"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color26"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="SteelBlue" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_slate_blue"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color27"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#7171c6"/>
+                        android:tint="#7171c6" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="SlateBlue"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color27"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="SlateBlue" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_sea_green"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color28"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#c1ffc1"/>
+                        android:tint="#c1ffc1" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="SeaGreen"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color28"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="SeaGreen" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_medium_gray"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color29"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#b7a69e"/>
+                        android:tint="#b7a69e" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="MediumGray"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color29"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="MediumGray" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_olive_green"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color30"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#bcee68"/>
+                        android:tint="#bcee68" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="OliveGreen"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color30"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="OliveGreen" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/btn_color_gray"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginLeft="3dp">
+
                     <ImageButton
                         android:id="@+id/ib_color31"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:background="#00ffffff"
                         android:src="@drawable/hair_1"
-                        android:tint="#404040"/>
+                        android:tint="#404040" />
+
                     <TextView
+                        style="@style/StyleTextEditPhotoColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Gray"
-                        style="@style/StyleTextEditPhotoColor"
                         android:layout_below="@+id/ib_color31"
-                        android:layout_marginTop="1dp"/>
+                        android:layout_marginTop="1dp"
+                        android:text="Gray" />
                 </RelativeLayout>
 
             </LinearLayout>
@@ -941,7 +1081,7 @@
             android:id="@+id/hsv_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/hsv_color"/>
+            android:layout_below="@+id/hsv_color" />
     </RelativeLayout>
 
     <!--ImageView close hair-->
@@ -949,27 +1089,29 @@
         android:id="@+id/btn_close_hair"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:src="@drawable/cancel"
-        app:layout_constraintBottom_toTopOf="@+id/rl_styles"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="5dp"
-        android:visibility="invisible"/>
+        android:src="@drawable/cancel"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/rl_styles"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
     <ImageView
         android:id="@+id/btn_flip"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/flip_2"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/rl_styles"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:visibility="invisible"/>
+        app:layout_constraintRight_toRightOf="parent" />
+
     <ImageView
         android:id="@+id/btn_save_hair"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:src="@drawable/done_1"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/rl_styles"
         android:layout_marginRight="5dp"
-        android:visibility="invisible"/>
+        android:src="@drawable/done_1"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/rl_styles"
+        app:layout_constraintRight_toRightOf="parent" />
 </android.support.constraint.ConstraintLayout>

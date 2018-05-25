@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.HorizontalScrollView;
@@ -38,6 +39,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import vn.edu.imic.hairrstylesticker.R;
 import vn.edu.imic.hairrstylesticker.utils.ConnectionUtils;
+import vn.edu.imic.hairrstylesticker.utils.Const;
 import vn.edu.imic.hairrstylesticker.utils.Logger;
 import vn.edu.imic.hairrstylesticker.view.custom.MoveGestureDetector;
 import vn.edu.imic.hairrstylesticker.view.custom.RotateGestureDetector;
@@ -173,7 +175,7 @@ public class EditPhotoActivity extends AppCompatActivity {
     //Hien thi tag item
     private String tagItem;
 
-    //anh dcuo chon
+    //anh duoc chon
     private String imageSelected;
 
     /*Item duoc chon*/
@@ -188,8 +190,11 @@ public class EditPhotoActivity extends AppCompatActivity {
     int sizeIconSuit;
 
     //Kich thuoc cua anh
+    private Bitmap bitmapSelected;
+    private Bitmap newBitmap;
     private int imageWidth;
     private int imageHeight;
+    private Uri uriImage;
 
     private int alpha = 255;
     private MoveGestureDetector moveGestureDetector;
@@ -493,6 +498,33 @@ public class EditPhotoActivity extends AppCompatActivity {
 
     /*init data*/
     private void initData() {
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        int i = displayMetrics.widthPixels;
+        int i2 = displayMetrics.heightPixels;
+        Logger.d("Size", "Width: " + i + "\nHeight: " + i2);
+        z = i;
+        System.gc();
+        uriImage = Uri.parse(getIntent().getStringExtra(Const.KEY_PHOTO_URI));
+        if (uriImage != null){
+            InputStream inputStream = null;
+            try {
+                inputStream = getContentResolver().openInputStream(uriImage);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            /*Kích thước của image*/
+            bitmapSelected = BitmapFactory.decodeStream(inputStream);
+            imageWidth = bitmapSelected.getWidth();
+            imageHeight = bitmapSelected.getHeight();
+            Logger.d("OldSize", "Width: " + imageWidth + "\nHeight: " + imageHeight);
+            bitmapSelected = resizeImageToNewSize(bitmapSelected,i,i2);
+            newBitmap = bitmapSelected;
+            /*Lấy ra kích thước mới image*/
+            imageWidth = newBitmap.getWidth();
+            imageHeight = newBitmap.getHeight();
+            Logger.d("NewSize", "Width: " + imageWidth + "\nHeight: " + imageHeight);
+            imgCrop.setImageBitmap(newBitmap);
+        }
 /*
         result = CropImage.getActivityResult(intent);
         if (result != null) {
@@ -501,6 +533,51 @@ public class EditPhotoActivity extends AppCompatActivity {
         }
 */
 
+    }
+
+    /**
+     *
+     * @param z
+     */
+    @BindView(R.id.rl_image)
+    RelativeLayout rlImage;
+    private void checkImageRotation(boolean z){
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        /*Lấy kích thước màn hình thiết bị*/
+        int i = displayMetrics.widthPixels;
+        int i2 = displayMetrics.heightPixels;
+        Logger.d(TAG,"Width: " + i + "\nHeight: " + i2);
+        float f = displayMetrics.density;
+        Logger.d(TAG,"Density: " + f);
+        int i3 = i2 - ((int) (f*200.0f));
+        rlImage.getMeasuredHeight();
+        rlImage.getMeasuredWidth();
+        Logger.d(TAG,"D_width: " + i + "\nD_height: " + i3);
+        newBitmap = resizeImageToNewSize(scaleBitmap(this,uriImage),i,i3);
+
+    }
+    /**
+     *
+     * @param bm
+     * @param i
+     * @param i2
+     * @return
+     */
+    private Bitmap resizeImageToNewSize(Bitmap bm, int i, int i2) {
+        int width = bm.getWidth();
+        int height = bm.getHeight();
+        float f = i;
+        float f2 = i2;
+        if (!(height == i2 && width == i)){
+            f2 = ((float)i) / ((float)width);
+            f = ((float)i) / ((float)height);
+            if (f2 >= f){
+                f2 = f;
+            }
+            f = ((float) width) * f2;
+            f2 *= (float)height;
+        }
+        return Bitmap.createScaledBitmap(bm,(int) f,(int) f2,true);
     }
 
     @OnClick({R.id.btn_hair, R.id.btn_beard, R.id.btn_mus, R.id.btn_glasses, R.id.btn_tattoo, R.id.btn_cap, R.id.btn_suite,
