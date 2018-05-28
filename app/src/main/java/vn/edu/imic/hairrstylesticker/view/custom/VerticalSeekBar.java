@@ -27,13 +27,6 @@ public class VerticalSeekBar extends AppCompatSeekBar{
         super(context, attrs, defStyleAttr);
     }
 
-    public void init(Canvas canvas){
-        Drawable drawable = null;
-        if (Build.VERSION.SDK_INT >= 16){
-
-        }
-    }
-
     void a(Canvas canvas) {
         Drawable drawable = null;
         if (Build.VERSION.SDK_INT >= 16) {
@@ -73,8 +66,8 @@ public class VerticalSeekBar extends AppCompatSeekBar{
             return false;
         }
         switch (motionEvent.getAction()) {
-            case 0:
-            case 1:
+            case MotionEvent.ACTION_DOWN:
+            case MotionEvent.ACTION_UP:
             case 2:
                 setProgress(getMax() - ((int) ((((float) getMax()) * motionEvent.getY()) / ((float) getHeight()))));
                 onSizeChanged(getWidth(), getHeight(), 0, 0);

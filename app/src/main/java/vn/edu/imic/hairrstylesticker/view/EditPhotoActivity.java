@@ -1,11 +1,14 @@
 package vn.edu.imic.hairrstylesticker.view;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.PointF;
@@ -17,6 +20,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -200,8 +204,6 @@ public class EditPhotoActivity extends AppCompatActivity {
     private MoveGestureDetector moveGestureDetector;
     private float focusX = 0.0f;
     private float focusY = 0.0f;
-    private int h;
-    private int g;
     private RotateGestureDetector rotateGestureDetector;
     private float rotationDegrees = 0.0f;
     private ScaleGestureDetector scaleGestureDetector;
@@ -541,6 +543,10 @@ public class EditPhotoActivity extends AppCompatActivity {
      */
     @BindView(R.id.rl_image)
     RelativeLayout rlImage;
+    Bitmap b;
+    int g;
+    int h;
+    boolean z1;
     private void checkImageRotation(boolean z){
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         /*Lấy kích thước màn hình thiết bị*/
@@ -554,8 +560,84 @@ public class EditPhotoActivity extends AppCompatActivity {
         rlImage.getMeasuredWidth();
         Logger.d(TAG,"D_width: " + i + "\nD_height: " + i3);
         newBitmap = resizeImageToNewSize(scaleBitmap(this,uriImage),i,i3);
+        imageWidth = newBitmap.getWidth();
+        imageHeight = newBitmap.getHeight();
+
+        /*Bitmap scale fit width*/
+        Bitmap bmScaleToFit = scaleToFitWidth(newBitmap,i,i3);
+        fixOrientation(bmScaleToFit);
+        b = bmScaleToFit;
+        imgCrop.setImageBitmap(bmScaleToFit);
+        imgCrop.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+            @Override
+            public boolean onPreDraw() {
+                imgCrop.getViewTreeObserver().removeOnPreDrawListener(this);
+                g = imgCrop.getMeasuredWidth();
+                h = imgCrop.getMeasuredHeight();
+                rlImage.getLayoutParams().width = h;
+                rlImage.getLayoutParams().height = g;
+                rlImage.requestLayout();
+                rlImage.getLayoutParams().width = imageWidth;
+                rlImage.getLayoutParams().height = imageHeight;
+                imgChooseStyle.getLayoutParams().width = imageWidth;
+                imgChooseStyle.getLayoutParams().height = imageHeight;
+                if (z1){
+                    rotatePanZoomHair();
+                }
+                return false;
+            }
+        });
+    }
+
+    private void rotatePanZoomHair() {
 
     }
+
+    private Bitmap fixOrientation(Bitmap bitmap){
+        if (bitmap.getWidth() < bitmap.getHeight()){
+            /*Nếu chiều rộng bitmap < chiều cao*/
+            return bitmap;
+        }
+        Matrix matrix = new Matrix();
+        //Quay 90 độ
+        matrix.postRotate(90.0f);
+        return Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
+    }
+
+    /*Get screenshot*/
+    public Bitmap getScreenShot(){
+        View view = findViewById(R.id.rl_image);
+        view.setDrawingCacheEnabled(true);
+        Bitmap createBitmap = Bitmap.createBitmap(view.getDrawingCache());
+        view.setDrawingCacheEnabled(false);
+        createBitmap = Bitmap.createBitmap(createBitmap.getWidth(),createBitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        view.draw(new Canvas(createBitmap));
+        return createBitmap;
+    }
+
+    @Override
+    public void onBackPressed() {
+        showDialogBack();
+    }
+
+    private void showDialogBack() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Bạn chắc chắn muốn thoát ứng dụng");
+        builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
+    }
+
     /**
      *
      * @param bm
